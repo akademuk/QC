@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/reset.css">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Document</title>
+</head>
+<body>
+<!-- Кнопка для открытия модального окна -->
+<button id="loginBtn">Войти</button>
+<button id="loginBtn1">Відновити пароль по Email</button>
+
+<!-- Модальное окно для входа -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+
+    <!-- Форма логина и пароля -->
+    <div class="login-form">
+      <form id="login">
+        <h2>Вход в личный кабинет</h2>
+        <input type="tel" name="phone" placeholder="Enter phone number" required>
+        <input type="password" id="password" name="password" placeholder="Пароль" required>
+        <div class="show-password">
+          <img src="img/eyeOpen.svg" alt="" class="eyeOpen">
+          <img src="img/eyeClose.svg" alt="" class="eyeClose active">
+        </div>
+        <input type="submit" value="Увійти" class="submitForm">
+        <p class="forgot-password"><a href="#" id="forgotBtn">Забыли пароль?</a></p>
+        <p class="register-link"><a href="#" id="registerBtn">Зарегистрироваться</a></p>
+      </form>
+    </div>
+
+    <!-- Форма для восстановления пароля -->
+    <div id="forgotForm" style="display:none;">
+      <div class="back-btn">
+        <img src="img/line.svg" alt="arrow">
+      </div>
+      <div class="tabsContainer">
+        <h2>Відновити доступ через:</h2>
+        <div class="tabs">
+          <button class="tablinks active" onclick="openTab(event, 'email')">Email</button>
+          <button class="tablinks" onclick="openTab(event, 'phone')">Телефон</button>
+        </div>
+        
+        <div id="email" class="tabcontent active">
+          <h3>Ми відправимо Вам листа з посиланням, перейдіть за ним та встановіть новий пароль.</h3>
+          <form>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+            <a href="#" id="confirmationEmail" class="submitForm">Відправити</a></p>
+          </form>
+        </div>
+
+        <div id="phone" class="tabcontent">
+          <h3>Ми відправимо Вам SMS з кодом, введіть його та вставновіть новий пароль.</h3>
+          <form>
+            <input type="tel" id="phone" name="phone" placeholder="(+380)_ _  _ _ _  _ _  _ _" required>
+            <a href="#" id="openConfirmationPhone" class="submitForm">Відправити</a></p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Посилання для відновлення паролю було відправлено на Email -->
+    <div id="openConfirmationEmailContent">
+      <img src="img/emailLike.svg" alt="emeil">
+      <p>Посилання для відновлення паролю 
+        було відправлено на 
+        <span>mail@gmail.com</span>
+      </p>
+    </div>
+
+    <!-- Форма відправлено SMS з кодом на  телефон-->
+    <div id="openConfirmationPhoneContent">
+      <p>На номер <span>+38 (093) 948 84 94</span> відправлено SMS з кодом</p>
+      <form>
+        <input type="text" placeholder="Код з SMS">
+        <a href="#" class="submitForm" id="recoverPhone">Відправити</a></p>
+      </form>
+      <a href="#" id="changeNumber">Змінити номер телефону</a>
+      <div class="timer">
+        <a href="#" class="hidden" id="resend-sms-btn">Відправити SMS повторно</a>
+        <p class="timer-wrapper">Надіслати код ще раз через<span id="timer">01:00</span></p>            
+      </div>
+    </div>
+
+     <!-- Вигадайте пароль для входу в особистий кабінет после ввода sms кода-->
+    <div id="recoverPhoneContainer">
+      <h2>Вигадайте пароль для входу 
+        в особистий кабінет</h2>
+        <form>
+          <input type="password" id="passwordNew" class="password" name="password" placeholder="Пароль" required>
+          <div class="show-password1">
+            <img src="img/eyeOpen.svg" alt="" class="eyeOpen">
+            <img src="img/eyeClose.svg" alt="" class="eyeClose active">
+          </div>
+          <input type="password" id="confirmPassword" class="password" name="password" placeholder="Підтвердіть пароль" required>
+          <div class="show-password2">
+            <img src="img/eyeOpen.svg" alt="" class="eyeOpen">
+            <img src="img/eyeClose.svg" alt="" class="eyeClose active">
+          </div>
+          <button type="submit" class="submitForm">Зберегти</button>
+        </form>
+    </div>
+
+    <!-- Форма для регистрации -->
+    <div id="registerForm" style="display:none;">
+      <form>
+       <h2>Для отримання позики необхідно створити особистий кабінет</h2>
+          <input type="tel" name="phone" placeholder="Enter phone number" required>
+          <div class="chexbox">
+            <input type="checkbox" name="" id="">
+            <p>Даю згоду на обробку <a href="#" id="btn-open-popup">персональних даних</a></p>
+          </div>
+          <button type="submit" class="submitForm">Зберегти</button>
+      </form>
+      <a href="#" id="ragistrations" class="back-btn back-btnText">Я вже зареєстрований</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- Відновити пароль по Email -->
+<div id="recoverEmailModal" class="modal1">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Відновити пароль по Email</h2>
+    <form>
+      <input type="password" id="passwordNewEmail" class="password" name="password" placeholder="Пароль" required>
+      <div class="show-password3">
+        <img src="img/eyeOpen.svg" alt="" class="eyeOpen">
+        <img src="img/eyeClose.svg" alt="" class="eyeClose active">
+      </div>
+      <input type="password" id="confirmPasswordEmail" class="password" name="password" placeholder="Підтвердіть пароль" required>
+      <div class="show-password4">
+        <img src="img/eyeOpen.svg" alt="" class="eyeOpen">
+        <img src="img/eyeClose.svg" alt="" class="eyeClose active">
+      </div>
+      <button type="submit" class="submitForm">Зберегти</button>
+    </form>
+  </div>
+</div>
+
+<div id="popup" style="display:none;">
+  <button id="btn-close-popup">&times;</button>
+  <p>Згоду на передачу, зберігання, використання та поширення інформації щодо себе можна переглянути за <a href="#" target="_blank">посиланням.</a> </p>
+</div>
+
+
+<script src="script/registration.js"></script>
+<script src="script/access.js"></script>
+<script src="script/timer.js"></script>
+<script src="script/recoverEmailModal.js"></script>
+<script src="script/eye.js"></script>
+<script src="script/popap.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const backBtns = document.querySelectorAll('.back-btn');
+
+backBtns.forEach(backBtn => {
+  backBtn.addEventListener('click', () => {
+    console.log('Нажата кнопка "Назад"');
+    backBtn.parentNode.style.display = 'none';
+    document.getElementById('login').style.display = 'flex';
+  });
+});
+});
+</script>
+
+</body>
+</html>
