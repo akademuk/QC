@@ -12,6 +12,7 @@
 <!-- Кнопка для открытия модального окна -->
 <button id="loginBtn">Войти</button>
 <button id="loginBtn1">Відновити пароль по Email</button>
+<button id="settingsBtn">Налаштування</button>
 
 <!-- Модальное окно для входа -->
 <div id="loginModal" class="modal">
@@ -122,7 +123,6 @@
   </div>
 </div>
 
-
 <!-- Відновити пароль по Email -->
 <div id="recoverEmailModal" class="modal1">
   <div class="modal-content">
@@ -144,10 +144,42 @@
   </div>
 </div>
 
+<!-- Налаштування -->
+<div class="settings">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Налаштування</h2>
+    <form>
+      <input type="password" id="settingOldPassword" class="password" name="password" placeholder="Старий пароль" required>
+      <div class="settingOldPassword">
+        <img src="img/eyeOpen.svg" alt="" class="eyeOpen">
+        <img src="img/eyeClose.svg" alt="" class="eyeClose active">
+      </div>
+      <input type="password" id="settingNewPassword" class="password" name="password" placeholder="Новий пароль" required>
+      <div class="settingNewPassword">
+        <img src="img/eyeOpen.svg" alt="" class="eyeOpen">
+        <img src="img/eyeClose.svg" alt="" class="eyeClose active">
+      </div>
+      <input type="password" id="settingRepeatPassword" class="password" name="password" placeholder="Повторіть новий пароль" required>
+      <div class="settingRepeatPassword">
+        <img src="img/eyeOpen.svg" alt="" class="eyeOpen">
+        <img src="img/eyeClose.svg" alt="" class="eyeClose active">
+      </div>
+      <button type="submit" class="submitForm">Зберегти</button>
+    </form>
+  </div>
+</div>
+
 <div id="popup" style="display:none;">
   <button id="btn-close-popup">&times;</button>
   <p>Згоду на передачу, зберігання, використання та поширення інформації щодо себе можна переглянути за <a href="#" target="_blank">посиланням.</a> </p>
 </div>
+
+<div class="cookie">
+  <p>Ми використовуємо файли cookie на нашому веб-сайті, щоб забезпечити вам найрелевантніший досвід, запам’ятовуючи ваші вподобання та повторні відвідування. Натискаючи «Прийняти все», ви погоджуєтеся на використання ВСІХ файлів cookie.</p>
+  <button id="acceptBtn">Прийняти все</button>
+</div>
+
 
 
 <script src="script/registration.js"></script>
@@ -156,6 +188,9 @@
 <script src="script/recoverEmailModal.js"></script>
 <script src="script/eye.js"></script>
 <script src="script/popap.js"></script>
+<script src="script/settings.js"></script>
+<script src="script/cookie.js"></script>
+
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     const backBtns = document.querySelectorAll('.back-btn');

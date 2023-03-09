@@ -88,3 +88,58 @@ showPasswordBtn4.addEventListener('click', function() {
   }
 });
 
+
+// Налаштування
+const settingOldPassword = document.getElementById('settingOldPassword');
+const settingOldPasswordBtn = document.querySelector('.settingOldPassword');
+const eyeClose5 = document.querySelector('.settingOldPassword .eyeClose');
+const eyeOpen5 = document.querySelector('.settingOldPassword .eyeOpen');
+
+settingOldPasswordBtn.addEventListener('click', function() {
+  if (settingOldPassword.type === 'password') {
+    settingOldPassword.type = 'text';
+    eyeOpen5.classList.add('active');
+    eyeClose5.classList.remove('active');
+  } else {
+    settingOldPassword.type = 'password';
+    eyeClose5.classList.add('active');
+    eyeOpen5.classList.remove('active');
+  }
+});
+
+// Налаштування
+const settingNewPassword = document.getElementById('settingNewPassword');
+const settingNewPasswordBtn = document.querySelector('.settingNewPassword');
+const eyeClose6 = document.querySelector('.settingNewPassword .eyeClose');
+const eyeOpen6 = document.querySelector('.settingNewPassword .eyeOpen');
+
+settingNewPasswordBtn.addEventListener('click', function() {
+  if (settingNewPassword.type === 'password') {
+    settingNewPassword.type = 'text';
+    eyeOpen6.classList.add('active');
+    eyeClose6.classList.remove('active');
+  } else {
+    settingNewPassword.type = 'password';
+    eyeClose6.classList.add('active');
+    eyeOpen6.classList.remove('active');
+  }
+});
+
+// Налаштування
+const settingRepeatPassword = document.getElementById('settingRepeatPassword');
+const settingRepeatPasswordBtn = document.querySelector('.settingRepeatPassword');
+const eyeClose7 = document.querySelector('.settingRepeatPassword .eyeClose');
+const eyeOpen7 = document.querySelector('.settingRepeatPassword .eyeOpen');
+
+settingRepeatPasswordBtn.addEventListener('click', function() {
+  if (settingRepeatPassword.type === 'password') {
+    settingRepeatPassword.type = 'text';
+    eyeOpen7.classList.add('active');
+    eyeClose7.classList.remove('active');
+  } else {
+    settingRepeatPassword.type = 'password';
+    eyeClose7.classList.add('active');
+    eyeOpen7.classList.remove('active');
+  }
+});
+

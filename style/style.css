@@ -106,7 +106,7 @@ body {
 }
 .modal-content {
   width: 520px;
-  height:auto;
+  height:max-content;
   padding: 40px 20px;
   box-sizing: border-box;
   background: #FFFFFF;
@@ -545,4 +545,232 @@ form input[type="checkbox"] {
 #popup p > a {
   color: #5F7EE1;
   text-decoration: none;
+}
+.settings .modal-content form {
+  position: relative;
+}
+.settingOldPassword {
+  position: absolute;
+  top: 27px;
+  right: 20px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+.settingNewPassword {
+  position: absolute;
+  top: 102px;
+  right: 20px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+.settingRepeatPassword {
+  position: absolute;
+  top: 175px;
+  right: 20px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+.settings {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: hidden; 
+  background-color: rgba(0,0,0,0.4); 
+  align-items: center;
+  justify-content: center;
+}
+.cookie {
+  box-sizing: border-box;
+  padding: 24px 75px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 9999;  
+}
+.cookie > p {
+  font-size: 16px;
+  line-height: 140%;
+  width: 70%;
+  color: #141414;
+}
+.cookie > button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 280px;
+  height: 52px;
+  background: #D9552A;
+  border-radius: 30px;
+  box-sizing: border-box;
+  font-family: 'Gilroy-Bold';
+  font-size: 16px;
+  line-height: 160%;
+  color: #FFFFFF;
+  margin-left: 50px;
+  border: none;
+}
+.content404 {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.content404 h2 {
+  font-family: 'Nekst-SemiBold';
+  font-size: 56px;
+  line-height: 100%;
+  text-align: center;
+  color: #FFFFFF;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.content404Postition {
+  position: relative;
+}
+.content404 > p {
+  font-family: 'Gilroy-Regular';
+  font-size: 22px;
+  line-height: 26px;
+  text-align: center;
+  color: #FFFFFF;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+.content404 > a {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 190px;
+  height: 46px;
+  background: #D9552A;
+  border-radius: 30px;
+  font-family: 'Gilroy-Bold';
+  font-size: 18px;
+  line-height: 21px;
+  color: #FFFFFF;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+.content404Postition > img {
+  max-width: 100%;
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+  .cookie {
+    padding: 20px;
+  }
+}
+
+
+
+
+
+@media (max-width: 576px) {
+  .modal-content {
+    width: 90%;
+  }
+  .modal-content h2 {
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .show-password {
+    top: 182px;
+  }
+  .tabs {
+    flex-direction: column;
+  }
+  .tablinks.active {
+    width: 100%;
+  }
+  #popup {
+    width: 100%;
+    height: max-content;
+    padding: 40px 20px;
+  }
+  #openConfirmationPhoneContent > p {
+    font-size: 18px;
+    line-height: 22px;
+  }
+  #openConfirmationEmailContent > p {
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .cookie {
+    flex-direction: column;
+  }
+  .cookie > p {
+    width: 100%;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  .cookie > button {
+    width: 100%;
+    margin-left: 0;
+  }
+  .content404 {
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+  .content404 h2 {
+    font-size: 37px;
+    line-height: 100%;
+  }
+  .content404 > p {
+    font-size: 18px;
+  }
+  .content404 > a {
+    width: 100%;
+  }
 }
