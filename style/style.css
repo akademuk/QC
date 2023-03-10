@@ -10,8 +10,8 @@
 }
 @font-face {
   font-family: 'Gilroy-Regular';
-  src: url('../fonts/Gilroy-Regular.eot') format('opentype'), 
-       url('../fonts/Gilroy-Regular.woff2') format('woff2'), 
+  src: url('../fonts/Gilroy-Regular.woff2') format('woff2'), 
+       url('../fonts/Gilroy-Regular.eot') format('opentype'), 
        url('../fonts/Gilroy-Regular.woff') format('woff'), 
        url('../fonts/Gilroy-Regular.ttf')  format('truetype');
        font-weight: 400;
@@ -19,8 +19,8 @@
 }
 @font-face {
   font-family: 'Gilroy-Semibold';
-  src: url('../fonts/Gilroy-Semibold.eot') format('opentype'), 
-       url('../fonts/Gilroy-Semibold.woff2') format('woff2'), 
+  src: url('../fonts/Gilroy-Semibold.woff2') format('woff2'), 
+       url('../fonts/Gilroy-Semibold.eot') format('opentype'), 
        url('../fonts/Gilroy-Semibold.woff') format('woff'), 
        url('../fonts/Gilroy-Semibold.ttf')  format('truetype');
        font-weight: 600;
@@ -28,8 +28,9 @@
 }
 @font-face {
   font-family: 'Gilroy-Bold';
-  src: url('../fonts/Gilroy-Bold.eot') format('opentype'), 
-       url('../fonts/Gilroy-Bold.woff2') format('woff2'), 
+  
+  src: url('../fonts/Gilroy-Bold.woff2') format('woff2'), 
+       url('../fonts/Gilroy-Bold.eot') format('opentype'), 
        url('../fonts/Gilroy-Bold.woff') format('woff'), 
        url('../fonts/Gilroy-Bold.ttf')  format('truetype');
        font-weight: 700;
@@ -895,7 +896,7 @@ form input[type="checkbox"] {
 .downlod {
   font-family: 'Gilroy-Regular';
   display: flex;
-  align-items: flex-start !important;
+  align-items: center !important;
   justify-content: flex-start !important;
   background: transparent !important;
   border: none;
@@ -906,6 +907,7 @@ form input[type="checkbox"] {
   padding: 0 !important;
   height: auto !important;
   margin-right: auto !important;
+  text-align: left;
 }
 .downlod > img {
   margin-right: 14px;
@@ -1114,22 +1116,257 @@ form input[type="checkbox"] {
 .radioCredit2 label::before {
   left: 0;
 }
+.tablinks {
+  height: 67px !important;
+  font-family: 'Gilroy-Regular' !important;
+  margin-top: 0 !important;
+  width: 50% !important;
+  background: transparent !important;
+  font-size: 18px !important;
+  line-height: 120%;
+  color: #141414 !important;
+}
+.tablinks.active {
+  background: #fff !important;
+}
+.tabcontentContainer {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+.tabcontentContainerFlex {
+  margin-left: 10px;
+}
+.tabcontentContainerFlex span {
+  font-size: 12px;
+  line-height: 120%;
+  color: #797979;
+  margin-bottom: 4px;
+}
+.tabcontentContainerFlex p {
+  font-size: 16px;
+  line-height: 120%;
+  color: #797979;
+}
+.tabcontentContainer .contents1SectionBlack {
+  margin-left: auto;
+}
+form input::placeholder {
+  font-family: 'Gilroy-Regular';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 120%;
+  color: #797979;
+}
+.smoolInputFlex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+.smoolInput {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  width: 160px;
+  height: 54px;
+  box-sizing: border-box;
+  background: #F3F3F3;
+  border-radius: 10px;
+  margin-bottom: 0;
+}
+.tabcontent1 {
+  display: none;
+}
+.tabcontent1.active {
+  display: block;
+}
+.tablinks1 {
+  font-size: 18px;
+  line-height: 120%;
+  color: #141414;
+  border: none;
+  width: 50% !important;
+  height: 67px !important;
+  background: transparent !important;
+  border-radius: 10px;
+  transition: all 0.3s;
+  margin-top: 0 !important;
+}
+.tablinks1.active {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  height: 67px;
+  background: #FFFFFF !important;
+  box-shadow: 4px 7px 20px rgba(171, 171, 171, 0.25);
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+.tabsContainerInfo {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  height: 118px;
+  box-sizing: border-box;
+  background: rgba(95, 126, 225, 0.05);
+  border-radius: 20px;
+}
+.tabsContainerInfo p{
+  margin-top: 0;
+  font-size: 16px;
+  line-height: 120%;
+  color: #141414;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #BBBBBB;
+}
+.tabsContainerInfo a {
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 120%;
+  color: #5F7EE1;
+}
+.cabinet {
+  background: #FFFFFF;
+  box-shadow: 4px 7px 20px rgba(171, 171, 171, 0.25);
+  border-radius: 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  width: 300px;
+}
+.cabinetName {
+  font-size: 16px;
+  line-height: 120%;
+  color: #797979;
+  width: 100%;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #BBBBBB;
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+.cabinetNavigation {
+  padding: 20px 0 20px 20px;
+  border-bottom: 1px solid #BBBBBB;
+}
+.cabinetNavigation li {
+  margin-bottom: 40px;
+}
+.cabinetNavigation li:nth-last-of-type(1) {
+  margin-bottom: 0;
+}
+.cabinetNavigation li a {
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 120%;
+  color: #141414;
+}
+.cabinetOption {
+  padding: 20px 0 0 20px;
+}
+.cabinetOption li {
+  margin-bottom: 35px;
+  display: flex;
+  align-items: center;
+}
+.cabinetOption li:nth-last-of-type(1) {
+  margin-bottom: 0;
+}
+.cabinetOption li a img {
+  margin-right: 10px;
+}
+.cabinetOption li a {
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 120%;
+  color: #141414;
+}
+.contents1GalleryBankContainerSection img {
+  max-width: 80%;
+}
+/* Стили модального окна */
+.modalWindow {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
 
+.modalWindow-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 800px;
+}
 
+/* Стили для табов */
+.tabsWindow {
+  overflow: hidden;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+}
 
+.tablinkWindow {
+  background-color: #f2f2f2;
+  float: left;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  cursor: pointer;
+  padding: 10px;
+}
 
+.tablinkWindow.active {
+  background-color: #fff;
+  border-bottom: 1px solid #fff;
+}
 
+.tablinkWindow:hover {
+  background-color: #fff;
+}
 
+.tablinkWindowContent {
+  display: none;
+  padding: 20px;
+}
 
+.tablinkWindowContent.active {
+  display: block;
+}
 
+/* Стили для кнопок навигации по табам */
+.tab-navigation {
+  margin-top: 20px;
+  text-align: center;
+}
 
+.prev, .next {
+  background-color: #f2f2f2;
+  border: none;
+  color: #000;
+  padding: 10px 20px;
+  cursor: pointer;
+}
 
-
-
-
-
-
-
+.prev:hover, .next:hover {
+  background-color: #ddd;
+}
 
 
 

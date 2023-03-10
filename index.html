@@ -9,183 +9,222 @@
     <title>Document</title>
 </head>
 <body>
-<!-- Кнопка для открытия модального окна -->
-<button id="loginBtn">Войти</button>
-<button id="loginBtn1">Відновити пароль по Email</button>
-<button id="settingsBtn">Налаштування</button>
-<button id="pesonalInfoBtn">Open Modal</button>
+  <!-- Кнопка для открытия модального окна -->
+  <button id="loginBtn">Войти</button>
+  <button id="loginBtn1">Відновити пароль по Email</button>
+  <button id="settingsBtn">Налаштування</button>
+  <button id="open-modal">Открыть модальное окно</button>
 
 
-<!-- Модальное окно для входа -->
-<div id="loginModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
+  <!-- Модальное окно для входа -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
 
-    <!-- Форма логина и пароля -->
-    <div class="login-form">
-      <form id="login">
-        <h2>Вход в личный кабинет</h2>
-        <input type="tel" name="phone" placeholder="Enter phone number" required>
-        <input type="password" id="password" name="password" placeholder="Пароль" required>
-        <div class="show-password">
+      <!-- Форма логина и пароля -->
+      <div class="login-form">
+        <form id="login">
+          <h2>Вход в личный кабинет</h2>
+          <input type="tel" name="phone" placeholder="Enter phone number" required>
+          <input type="password" id="password" name="password" placeholder="Пароль" required>
+          <div class="show-password">
+            <img src="img/eyeOpen.svg" alt="" class="eyeOpen">
+            <img src="img/eyeClose.svg" alt="" class="eyeClose active">
+          </div>
+          <input type="submit" value="Увійти" class="submitForm">
+          <p class="forgot-password"><a href="#" id="forgotBtn">Забыли пароль?</a></p>
+          <p class="register-link"><a href="#" id="registerBtn">Зарегистрироваться</a></p>
+        </form>
+      </div>
+
+      <!-- Форма для восстановления пароля -->
+      <div id="forgotForm" style="display:none;">
+        <div class="back-btn">
+          <img src="img/line.svg" alt="arrow">
+        </div>
+        <div class="tabsContainer">
+          <h2>Відновити доступ через:</h2>
+          <div class="tabs">
+            <button class="tablinks active" onclick="openTab(event, 'email')">Email</button>
+            <button class="tablinks" onclick="openTab(event, 'phone')">Телефон</button>
+          </div>
+          
+          <div id="email" class="tabcontent active">
+            <h3>Ми відправимо Вам листа з посиланням, перейдіть за ним та встановіть новий пароль.</h3>
+            <form>
+              <input type="email" id="email" name="email" placeholder="Email" required>
+              <a href="#" id="confirmationEmail" class="submitForm">Відправити</a></p>
+            </form>
+          </div>
+
+          <div id="phone" class="tabcontent">
+            <h3>Ми відправимо Вам SMS з кодом, введіть його та вставновіть новий пароль.</h3>
+            <form>
+              <input type="tel" id="phone" name="phone" placeholder="(+380)_ _  _ _ _  _ _  _ _" required>
+              <a href="#" id="openConfirmationPhone" class="submitForm">Відправити</a></p>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Посилання для відновлення паролю було відправлено на Email -->
+      <div id="openConfirmationEmailContent">
+        <img src="img/emailLike.svg" alt="emeil">
+        <p>Посилання для відновлення паролю 
+          було відправлено на 
+          <span>mail@gmail.com</span>
+        </p>
+      </div>
+
+      <!-- Форма відправлено SMS з кодом на  телефон-->
+      <div id="openConfirmationPhoneContent">
+        <p>На номер <span>+38 (093) 948 84 94</span> відправлено SMS з кодом</p>
+        <form>
+          <input type="text" placeholder="Код з SMS">
+          <a href="#" class="submitForm" id="recoverPhone">Відправити</a></p>
+        </form>
+        <a href="#" id="changeNumber">Змінити номер телефону</a>
+        <div class="timer">
+          <a href="#" class="hidden" id="resend-sms-btn">Відправити SMS повторно</a>
+          <p class="timer-wrapper">Надіслати код ще раз через<span id="timer">01:00</span></p>            
+        </div>
+      </div>
+
+      <!-- Вигадайте пароль для входу в особистий кабінет после ввода sms кода-->
+      <div id="recoverPhoneContainer">
+        <h2>Вигадайте пароль для входу 
+          в особистий кабінет</h2>
+          <form>
+            <input type="password" id="passwordNew" class="password" name="password" placeholder="Пароль" required>
+            <div class="show-password1">
+              <img src="img/eyeOpen.svg" alt="" class="eyeOpen">
+              <img src="img/eyeClose.svg" alt="" class="eyeClose active">
+            </div>
+            <input type="password" id="confirmPassword" class="password" name="password" placeholder="Підтвердіть пароль" required>
+            <div class="show-password2">
+              <img src="img/eyeOpen.svg" alt="" class="eyeOpen">
+              <img src="img/eyeClose.svg" alt="" class="eyeClose active">
+            </div>
+            <button type="submit" class="submitForm">Зберегти</button>
+          </form>
+      </div>
+
+      <!-- Форма для регистрации -->
+      <div id="registerForm" style="display:none;">
+        <form>
+        <h2>Для отримання позики необхідно створити особистий кабінет</h2>
+            <input type="tel" name="phone" placeholder="Enter phone number" required>
+            <div class="chexbox">
+              <input type="checkbox">
+              <p>Даю згоду на обробку <a href="#" id="btn-open-popup">персональних даних</a></p>
+            </div>
+            <button type="submit" class="submitForm">Зберегти</button>
+        </form>
+        <a href="#" id="ragistrations" class="back-btn back-btnText">Я вже зареєстрований</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Відновити пароль по Email -->
+  <div id="recoverEmailModal" class="modal1">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Відновити пароль по Email</h2>
+      <form>
+        <input type="password" id="passwordNewEmail" class="password" name="password" placeholder="Пароль" required>
+        <div class="show-password3">
           <img src="img/eyeOpen.svg" alt="" class="eyeOpen">
           <img src="img/eyeClose.svg" alt="" class="eyeClose active">
         </div>
-        <input type="submit" value="Увійти" class="submitForm">
-        <p class="forgot-password"><a href="#" id="forgotBtn">Забыли пароль?</a></p>
-        <p class="register-link"><a href="#" id="registerBtn">Зарегистрироваться</a></p>
+        <input type="password" id="confirmPasswordEmail" class="password" name="password" placeholder="Підтвердіть пароль" required>
+        <div class="show-password4">
+          <img src="img/eyeOpen.svg" alt="" class="eyeOpen">
+          <img src="img/eyeClose.svg" alt="" class="eyeClose active">
+        </div>
+        <button type="submit" class="submitForm">Зберегти</button>
       </form>
     </div>
+  </div>
 
-    <!-- Форма для восстановления пароля -->
-    <div id="forgotForm" style="display:none;">
-      <div class="back-btn">
-        <img src="img/line.svg" alt="arrow">
-      </div>
-      <div class="tabsContainer">
-        <h2>Відновити доступ через:</h2>
-        <div class="tabs">
-          <button class="tablinks active" onclick="openTab(event, 'email')">Email</button>
-          <button class="tablinks" onclick="openTab(event, 'phone')">Телефон</button>
-        </div>
-        
-        <div id="email" class="tabcontent active">
-          <h3>Ми відправимо Вам листа з посиланням, перейдіть за ним та встановіть новий пароль.</h3>
-          <form>
-            <input type="email" id="email" name="email" placeholder="Email" required>
-            <a href="#" id="confirmationEmail" class="submitForm">Відправити</a></p>
-          </form>
-        </div>
-
-        <div id="phone" class="tabcontent">
-          <h3>Ми відправимо Вам SMS з кодом, введіть його та вставновіть новий пароль.</h3>
-          <form>
-            <input type="tel" id="phone" name="phone" placeholder="(+380)_ _  _ _ _  _ _  _ _" required>
-            <a href="#" id="openConfirmationPhone" class="submitForm">Відправити</a></p>
-          </form>
-        </div>
-      </div>
-    </div>
-
-    <!-- Посилання для відновлення паролю було відправлено на Email -->
-    <div id="openConfirmationEmailContent">
-      <img src="img/emailLike.svg" alt="emeil">
-      <p>Посилання для відновлення паролю 
-        було відправлено на 
-        <span>mail@gmail.com</span>
-      </p>
-    </div>
-
-    <!-- Форма відправлено SMS з кодом на  телефон-->
-    <div id="openConfirmationPhoneContent">
-      <p>На номер <span>+38 (093) 948 84 94</span> відправлено SMS з кодом</p>
+  <!-- Налаштування -->
+  <div class="settings">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Налаштування</h2>
       <form>
-        <input type="text" placeholder="Код з SMS">
-        <a href="#" class="submitForm" id="recoverPhone">Відправити</a></p>
+        <input type="password" id="settingOldPassword" class="password" name="password" placeholder="Старий пароль" required>
+        <div class="settingOldPassword">
+          <img src="img/eyeOpen.svg" alt="" class="eyeOpen">
+          <img src="img/eyeClose.svg" alt="" class="eyeClose active">
+        </div>
+        <input type="password" id="settingNewPassword" class="password" name="password" placeholder="Новий пароль" required>
+        <div class="settingNewPassword">
+          <img src="img/eyeOpen.svg" alt="" class="eyeOpen">
+          <img src="img/eyeClose.svg" alt="" class="eyeClose active">
+        </div>
+        <input type="password" id="settingRepeatPassword" class="password" name="password" placeholder="Повторіть новий пароль" required>
+        <div class="settingRepeatPassword">
+          <img src="img/eyeOpen.svg" alt="" class="eyeOpen">
+          <img src="img/eyeClose.svg" alt="" class="eyeClose active">
+        </div>
+        <button type="submit" class="submitForm">Зберегти</button>
       </form>
-      <a href="#" id="changeNumber">Змінити номер телефону</a>
-      <div class="timer">
-        <a href="#" class="hidden" id="resend-sms-btn">Відправити SMS повторно</a>
-        <p class="timer-wrapper">Надіслати код ще раз через<span id="timer">01:00</span></p>            
-      </div>
-    </div>
-
-     <!-- Вигадайте пароль для входу в особистий кабінет после ввода sms кода-->
-    <div id="recoverPhoneContainer">
-      <h2>Вигадайте пароль для входу 
-        в особистий кабінет</h2>
-        <form>
-          <input type="password" id="passwordNew" class="password" name="password" placeholder="Пароль" required>
-          <div class="show-password1">
-            <img src="img/eyeOpen.svg" alt="" class="eyeOpen">
-            <img src="img/eyeClose.svg" alt="" class="eyeClose active">
-          </div>
-          <input type="password" id="confirmPassword" class="password" name="password" placeholder="Підтвердіть пароль" required>
-          <div class="show-password2">
-            <img src="img/eyeOpen.svg" alt="" class="eyeOpen">
-            <img src="img/eyeClose.svg" alt="" class="eyeClose active">
-          </div>
-          <button type="submit" class="submitForm">Зберегти</button>
-        </form>
-    </div>
-
-    <!-- Форма для регистрации -->
-    <div id="registerForm" style="display:none;">
-      <form>
-       <h2>Для отримання позики необхідно створити особистий кабінет</h2>
-          <input type="tel" name="phone" placeholder="Enter phone number" required>
-          <div class="chexbox">
-            <input type="checkbox" name="" id="">
-            <p>Даю згоду на обробку <a href="#" id="btn-open-popup">персональних даних</a></p>
-          </div>
-          <button type="submit" class="submitForm">Зберегти</button>
-      </form>
-      <a href="#" id="ragistrations" class="back-btn back-btnText">Я вже зареєстрований</a>
     </div>
   </div>
-</div>
 
-<!-- Відновити пароль по Email -->
-<div id="recoverEmailModal" class="modal1">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>Відновити пароль по Email</h2>
-    <form>
-      <input type="password" id="passwordNewEmail" class="password" name="password" placeholder="Пароль" required>
-      <div class="show-password3">
-        <img src="img/eyeOpen.svg" alt="" class="eyeOpen">
-        <img src="img/eyeClose.svg" alt="" class="eyeClose active">
-      </div>
-      <input type="password" id="confirmPasswordEmail" class="password" name="password" placeholder="Підтвердіть пароль" required>
-      <div class="show-password4">
-        <img src="img/eyeOpen.svg" alt="" class="eyeOpen">
-        <img src="img/eyeClose.svg" alt="" class="eyeClose active">
-      </div>
-      <button type="submit" class="submitForm">Зберегти</button>
-    </form>
+  <div id="popup" style="display:none;">
+    <button id="btn-close-popup">&times;</button>
+    <p>Згоду на передачу, зберігання, використання та поширення інформації щодо себе можна переглянути за <a href="#" target="_blank">посиланням.</a> </p>
   </div>
-</div>
 
-<!-- Налаштування -->
-<div class="settings">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>Налаштування</h2>
-    <form>
-      <input type="password" id="settingOldPassword" class="password" name="password" placeholder="Старий пароль" required>
-      <div class="settingOldPassword">
-        <img src="img/eyeOpen.svg" alt="" class="eyeOpen">
-        <img src="img/eyeClose.svg" alt="" class="eyeClose active">
-      </div>
-      <input type="password" id="settingNewPassword" class="password" name="password" placeholder="Новий пароль" required>
-      <div class="settingNewPassword">
-        <img src="img/eyeOpen.svg" alt="" class="eyeOpen">
-        <img src="img/eyeClose.svg" alt="" class="eyeClose active">
-      </div>
-      <input type="password" id="settingRepeatPassword" class="password" name="password" placeholder="Повторіть новий пароль" required>
-      <div class="settingRepeatPassword">
-        <img src="img/eyeOpen.svg" alt="" class="eyeOpen">
-        <img src="img/eyeClose.svg" alt="" class="eyeClose active">
-      </div>
-      <button type="submit" class="submitForm">Зберегти</button>
-    </form>
+  <!-- Сookie -->
+  <div class="cookie">
+    <p>Ми використовуємо файли cookie на нашому веб-сайті, щоб забезпечити вам найрелевантніший досвід, запам’ятовуючи ваші вподобання та повторні відвідування. Натискаючи «Прийняти все», ви погоджуєтеся на використання ВСІХ файлів cookie.</p>
+    <button id="acceptBtn">Прийняти все</button>
   </div>
-</div>
 
-<div id="popup" style="display:none;">
-  <button id="btn-close-popup">&times;</button>
-  <p>Згоду на передачу, зберігання, використання та поширення інформації щодо себе можна переглянути за <a href="#" target="_blank">посиланням.</a> </p>
-</div>
+  <!-- Весь контент -->
+  <div class="contents">
 
+    <div class="contents1">
+        <div class="contents1Section">
+            <p class="contents1SectionGray">Номер кредиту</p>
+            <p class="contents1SectionBlack">1304682935811</p>
+        </div>
+        <div class="contents1Section">
+          <p class="contents1SectionGray">Строк позики</p>
+          <p class="contents1SectionBlack">300 дн.</p>
+        </div>
+        <div class="contents1Section">
+          <p class="contents1SectionGray">Повернути до</p>
+          <p class="contents1SectionBlack">13.12.2023</p>
+        </div>
+        <div class="contents1Section">
+          <p class="contents1SectionGray">Графік оплат</p>
+          <p class="contents1SectionBlue">10 частини по 1514,68 грн</p>
+        </div>
+        <div class="contents1Section">
+          <p class="contents1SectionGray">Сума позики</p>
+          <p class="contents1SectionBlack">13 000 грн.</p>
+        </div>
+        <div class="contents1Section">
+          <p class="contents1SectionGray">Повертаєте</p>
+          <p class="contents1SectionBlack">1514,8 грн.</p>
+        </div>
+        <div class="contents1Section">
+          <p class="contents1SectionGray">Картка</p>
+          <p class="contents1SectionBlack">537675******4450</p>
+        </div>
+        <button>
+          <img src="img/arrowsPrev.svg" alt="arrowsPrev">
+          До списку кредитів
+        </button>
+    </div>
 
-
-
-
-
-<!-- Весь контент -->
-<div class="contents">
-
-  <div class="contents1">
+    <!-- В обробці -->
+    <div class="contents1">
+      <h2>В обробці</h2>
+      <p class="blueText">Ваш запит розглядається. Після підтвердження вам буде наданий електронний договір.</p>
       <div class="contents1Section">
           <p class="contents1SectionGray">Номер кредиту</p>
           <p class="contents1SectionBlack">1304682935811</p>
@@ -218,541 +257,728 @@
         <img src="img/arrowsPrev.svg" alt="arrowsPrev">
         До списку кредитів
       </button>
-  </div>
+    </div>
 
-  <div class="contents1">
-    <h2>В обробці</h2>
-    <p class="blueText">Ваш запит розглядається. Після підтвердження вам буде наданий електронний договір.</p>
-    <div class="contents1Section">
-        <p class="contents1SectionGray">Номер кредиту</p>
-        <p class="contents1SectionBlack">1304682935811</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Строк позики</p>
-      <p class="contents1SectionBlack">300 дн.</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Повернути до</p>
-      <p class="contents1SectionBlack">13.12.2023</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Графік оплат</p>
-      <p class="contents1SectionBlue">10 частини по 1514,68 грн</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Сума позики</p>
-      <p class="contents1SectionBlack">13 000 грн.</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Повертаєте</p>
-      <p class="contents1SectionBlack">1514,8 грн.</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Картка</p>
-      <p class="contents1SectionBlack">537675******4450</p>
-    </div>
-    <button>
-      <img src="img/arrowsPrev.svg" alt="arrowsPrev">
-      До списку кредитів
-    </button>
-  </div>
-
-  <div class="contents1">
-    <h2>Оберіть спосіб ідентифікації</h2>
-    <div class="imgContens1">
-      <img src="img/bank1.png" alt="">
-    </div>
-    <div class="contents1Section">
-        <p class="contents1SectionGray">Номер кредиту</p>
-        <p class="contents1SectionBlack">1304682935811</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Строк позики</p>
-      <p class="contents1SectionBlack">300 дн.</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Повернути до</p>
-      <p class="contents1SectionBlack">13.12.2023</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Графік оплат</p>
-      <p class="contents1SectionBlue">10 частини по 1514,68 грн</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Сума позики</p>
-      <p class="contents1SectionBlack">13 000 грн.</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Повертаєте</p>
-      <p class="contents1SectionBlack">1514,8 грн.</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Картка</p>
-      <p class="contents1SectionBlack">537675******4450</p>
-    </div>
-    <button>
-      <img src="img/arrowsPrev.svg" alt="arrowsPrev">
-      До списку кредитів
-    </button>
-  </div>
-
-  <div class="contents1">
-    <div class="contents1ImgSmoll">
-      <img src="img/bank1.png" alt="">
-    </div>
-    <h2>Виконайте ідентифікацію
-      з використанням Системи BankID НБУ</h2>
-    <div class="contents1GalleryBank">
-      <span>Оберіть свій банк</span>
-      <div class="contents1GalleryBankContainer">
-        <div class="contents1GalleryBankContainerSection">
-          <img src="img/imgBank1.png" alt="">
-        </div>
-        <div class="contents1GalleryBankContainerSection">
-          <img src="img/imgBank2.png" alt="">
-        </div>
-        <div class="contents1GalleryBankContainerSection">
-          <img src="img/imgBank3.png" alt="">
-        </div>
-        <div class="contents1GalleryBankContainerSection">
-          <img src="img/imgBank4.png" alt="">
-        </div>
-        <div class="contents1GalleryBankContainerSection">
-          <img src="img/imgBank5.png" alt="">
-        </div>
-        <div class="contents1GalleryBankContainerSection">
-          <img src="img/imgBank6.png" alt="">
-        </div>
+    <!-- Оберіть спосіб ідентифікації -->
+    <div class="contents1">
+      <h2>Оберіть спосіб ідентифікації</h2>
+      <div class="imgContens1">
+        <img src="img/bank1.png" alt="">
       </div>
-    </div>
-    <button class="circle-arrows">
-      <img src="img/circle-arrows.png" alt="arrowsPrev">
-      Показати ще
-    </button>
-    <button>
-      <img src="img/arrowsPrev.svg" alt="arrowsPrev">
-      Назад
-    </button>
-    <div class="contents1Section">
-        <p class="contents1SectionGray">Номер кредиту</p>
-        <p class="contents1SectionBlack">1304682935811</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Строк позики</p>
-      <p class="contents1SectionBlack">300 дн.</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Повернути до</p>
-      <p class="contents1SectionBlack">13.12.2023</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Графік оплат</p>
-      <p class="contents1SectionBlue">10 частини по 1514,68 грн</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Сума позики</p>
-      <p class="contents1SectionBlack">13 000 грн.</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Повертаєте</p>
-      <p class="contents1SectionBlack">1514,8 грн.</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Картка</p>
-      <p class="contents1SectionBlack">537675******4450</p>
-    </div>
-    <button>
-      <img src="img/arrowsPrev.svg" alt="arrowsPrev">
-      До списку кредитів
-    </button>
-  </div>
-
-  <div class="contents1">
-    <h2>Підтвердіть email</h2>
-    <p class="blueText">Ми надіслали вам листа, перейдіть за посиланням для підтвердження
-      Якщо email помилковий, виправте його, ми надішлемо нового листа</p>
-    <div class="contents1Email">
-      <div class="contents1EmailFlex">
-        <span>Email</span>
-        <p>mailmail@gmail.com</p>
+      <div class="contents1Section">
+          <p class="contents1SectionGray">Номер кредиту</p>
+          <p class="contents1SectionBlack">1304682935811</p>
       </div>
-      <img src="img/like.svg" alt="like">
-    </div>
-    <p class="contents1Timer">Надіслати ще раз через 0:52</p>
-    <div class="contents1Section">
-        <p class="contents1SectionGray">Номер кредиту</p>
-        <p class="contents1SectionBlack">1304682935811</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Строк позики</p>
-      <p class="contents1SectionBlack">300 дн.</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Повернути до</p>
-      <p class="contents1SectionBlack">13.12.2023</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Графік оплат</p>
-      <p class="contents1SectionBlue">10 частини по 1514,68 грн</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Сума позики</p>
-      <p class="contents1SectionBlack">13 000 грн.</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Повертаєте</p>
-      <p class="contents1SectionBlack">1514,8 грн.</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Картка</p>
-      <p class="contents1SectionBlack">537675******4450</p>
-    </div>
-    <button>
-      <img src="img/arrowsPrev.svg" alt="arrowsPrev">
-      До списку кредитів
-    </button>
-  </div>
-
-  <div class="contents1">
-    <h2>Підпишіть договір</h2>
-    <div class="dogovor">
-      <p>Петров Петро Петрович, якщо Ви згодні з умовами договору, введіть код з sms.</p>
-      <button class="downlod">
-        <img src="img/downlod.svg" alt="">
-        Завантажити Пакет документів до договору кредиту у PDF
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Строк позики</p>
+        <p class="contents1SectionBlack">300 дн.</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Повернути до</p>
+        <p class="contents1SectionBlack">13.12.2023</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Графік оплат</p>
+        <p class="contents1SectionBlue">10 частини по 1514,68 грн</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Сума позики</p>
+        <p class="contents1SectionBlack">13 000 грн.</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Повертаєте</p>
+        <p class="contents1SectionBlack">1514,8 грн.</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Картка</p>
+        <p class="contents1SectionBlack">537675******4450</p>
+      </div>
+      <button>
+        <img src="img/arrowsPrev.svg" alt="arrowsPrev">
+        До списку кредитів
       </button>
-      <p>На номер 380674042507 відправлено sms з кодом підтвердження.</p>
     </div>
-    <form>
-      <input type="text" placeholder="Код з SMS">
-      <input type="submit" value="Увійти" class="submitForm">
-    </form>
-    <p class="contents1Timer">Надіслати ще раз через 0:52</p>
-    <div class="contents1Section">
-        <p class="contents1SectionGray">Номер кредиту</p>
-        <p class="contents1SectionBlack">1304682935811</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Строк позики</p>
-      <p class="contents1SectionBlack">300 дн.</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Повернути до</p>
-      <p class="contents1SectionBlack">13.12.2023</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Графік оплат</p>
-      <p class="contents1SectionBlue">10 частини по 1514,68 грн</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Сума позики</p>
-      <p class="contents1SectionBlack">13 000 грн.</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Повертаєте</p>
-      <p class="contents1SectionBlack">1514,8 грн.</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Картка</p>
-      <p class="contents1SectionBlack">537675******4450</p>
-    </div>
-    <button>
-      <img src="img/arrowsPrev.svg" alt="arrowsPrev">
-      До списку кредитів
-    </button>
-  </div>
 
-  <div class="contents1">
-    <h2>Необхідно більше інформації</h2>
-    <p class="blueText">Для прийняття рішення нам необхідно знати більше про вас.</p>
-    <form>
-      <p>Додаткова контактна особа</p>
-      <select name="" id="">
-        <option value="">Тип відносин</option>
-        <option value="">Тип відносин</option>
-        <option value="">Тип відносин</option>
-      </select>
-      <input type="text" placeholder="Прізвище">
-      <input type="text" placeholder="Ім’я">
-      <input type="text" placeholder="По батькові">
-      <input type="tel" placeholder="(+380)_ _  _ _ _  _ _  _ _">
-      <input type="submit" value="Увійти" class="submitForm">
-    </form>
-    <div class="contents1Section">
-        <p class="contents1SectionGray">Номер кредиту</p>
-        <p class="contents1SectionBlack">1304682935811</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Строк позики</p>
-      <p class="contents1SectionBlack">300 дн.</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Повернути до</p>
-      <p class="contents1SectionBlack">13.12.2023</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Графік оплат</p>
-      <p class="contents1SectionBlue">10 частини по 1514,68 грн</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Сума позики</p>
-      <p class="contents1SectionBlack">13 000 грн.</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Повертаєте</p>
-      <p class="contents1SectionBlack">1514,8 грн.</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Картка</p>
-      <p class="contents1SectionBlack">537675******4450</p>
-    </div>
-    <button>
-      <img src="img/arrowsPrev.svg" alt="arrowsPrev">
-      До списку кредитів
-    </button>
-  </div>
-
-  <div class="contents1">
-    <h2>Необхідно більше інформації</h2>
-    <p class="blueText">Для прийняття рішення нам необхідно знати більше про вас.</p>
-    <form>
-      <p>Селфі з паспортом</p>
-      <label for="photo" class="photo-label">
-        <input type="file" id="photo" name="photo">
-        Додати фото
-      </label>
-      <input type="submit" value="Увійти" class="submitForm">
-    </form>
-    <div class="contents1Section">
-        <p class="contents1SectionGray">Номер кредиту</p>
-        <p class="contents1SectionBlack">1304682935811</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Строк позики</p>
-      <p class="contents1SectionBlack">300 дн.</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Повернути до</p>
-      <p class="contents1SectionBlack">13.12.2023</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Графік оплат</p>
-      <p class="contents1SectionBlue">10 частини по 1514,68 грн</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Сума позики</p>
-      <p class="contents1SectionBlack">13 000 грн.</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Повертаєте</p>
-      <p class="contents1SectionBlack">1514,8 грн.</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Картка</p>
-      <p class="contents1SectionBlack">537675******4450</p>
-    </div>
-    <button>
-      <img src="img/arrowsPrev.svg" alt="arrowsPrev">
-      До списку кредитів
-    </button>
-  </div>
-
-  <div class="contents1">
-    <h2>Геолокація</h2>
-    <p class="blueText">Для подачі заявки необхідно надати дозвіл браузеру на визначення геолокації</p>
-    <p style="text-align: center; margin-bottom: 30px; margin-top: 30px;">Додаткова інформація — визначення місцезнаходження</p>
-    <a href="#"class="submitForm">Увійти</a>
-    <div class="contents1Section">
-        <p class="contents1SectionGray">Номер кредиту</p>
-        <p class="contents1SectionBlack">1304682935811</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Строк позики</p>
-      <p class="contents1SectionBlack">300 дн.</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Повернути до</p>
-      <p class="contents1SectionBlack">13.12.2023</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Графік оплат</p>
-      <p class="contents1SectionBlue">10 частини по 1514,68 грн</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Сума позики</p>
-      <p class="contents1SectionBlack">13 000 грн.</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Повертаєте</p>
-      <p class="contents1SectionBlack">1514,8 грн.</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Картка</p>
-      <p class="contents1SectionBlack">537675******4450</p>
-    </div>
-    <button>
-      <img src="img/arrowsPrev.svg" alt="arrowsPrev">
-      До списку кредитів
-    </button>
-  </div>
-
-  <div class="contents1 contents1Hidden">
-    <span class="close">&times;</span>
-    <h2 class="contents1FlexH2">Графік оплат:</h2>
-    <div class="contents1Scroll">
-      <div class="contents1Section">
-        <span>1</span>
-        <p class="contents1SectionBlack">до Пт, 17.03.2023</p>
-        <p class="contents1SectionBlue">1514, 68 грн.</p>
+    <!-- Виконайте ідентифікацію з використанням Системи BankID НБУ -->
+    <div class="contents1">
+      <div class="contents1ImgSmoll">
+        <img src="img/bank1.png" alt="">
       </div>
-      <div class="contents1Section">
-        <span>2</span>
-        <p class="contents1SectionRed">до Пт, 17.03.2023</p>
-        <p class="contents1SectionBlue">1514, 68 грн.</p>
-      </div>
-      <div class="contents1Section">
-        <span>3</span>
-        <p class="contents1SectionBlack">до Пт, 17.03.2023</p>
-        <p class="contents1SectionBlue">1514, 68 грн.</p>
-      </div>
-      <div class="contents1Section">
-        <span>4</span>
-        <p class="contents1SectionBlack">до Пт, 17.03.2023</p>
-        <p class="contents1SectionBlue">1514, 68 грн.</p>
-      </div>
-      <div class="contents1Section">
-        <span>5</span>
-        <p class="contents1SectionBlack">до Пт, 17.03.2023</p>
-        <p class="contents1SectionBlue">1514, 68 грн.</p>
-      </div>
-      <div class="contents1Section">
-        <span>6</span>
-        <p class="contents1SectionRed">до Пт, 17.03.2023</p>
-        <p class="contents1SectionBlue">1514, 68 грн.</p>
-      </div>
-      <div class="contents1Section">
-        <span>7</span>
-        <p class="contents1SectionBlack">до Пт, 17.03.2023</p>
-        <p class="contents1SectionBlue">1514, 68 грн.</p>
-      </div>
-      <div class="contents1Section">
-        <span>3</span>
-        <p class="contents1SectionBlack">до Пт, 17.03.2023</p>
-        <p class="contents1SectionBlue">1514, 68 грн.</p>
-      </div>
-      <div class="contents1Section">
-        <span>4</span>
-        <p class="contents1SectionBlack">до Пт, 17.03.2023</p>
-        <p class="contents1SectionBlue">1514, 68 грн.</p>
-      </div>
-      <div class="contents1Section">
-        <span>5</span>
-        <p class="contents1SectionBlack">до Пт, 17.03.2023</p>
-        <p class="contents1SectionBlue">1514, 68 грн.</p>
-      </div>
-      <div class="contents1Section">
-        <span>6</span>
-        <p class="contents1SectionRed">до Пт, 17.03.2023</p>
-        <p class="contents1SectionBlue">1514, 68 грн.</p>
-      </div>
-      <div class="contents1Section">
-        <span>7</span>
-        <p class="contents1SectionBlack">до Пт, 17.03.2023</p>
-        <p class="contents1SectionBlue">1514, 68 грн.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="contents1">
-    <h2>Кредит активний</h2>
-    <a href="#"class="submitForm">Погасити</a>
-    <div class="contents1Section">
-        <p class="contents1SectionGray">Наступний платіж</p>
-        <p class="contents1SectionRed">1496,16 грн, <br>
-          до Чт, 23.02.2023</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Сума погашення на сьогодні</p>
-      <p class="contents1SectionBlue">15 129,6 грн</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Поточний платіж</p>
-      <p class="contents1SectionBlue">1496,16 грн</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Графік оплат</p>
-      <p class="contents1SectionBlue">12 частини по 1496,16 грн</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Строк позики</p>
-      <p class="contents1SectionBlack">360 днів</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Повернути до</p>
-      <p class="contents1SectionBlack">20.01.2024</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Номер кредиту</p>
-      <p class="contents1SectionBlack">1304682935811</p>
-    </div>
-    <div class="contents1Section">
-      <p class="contents1SectionGray">Сума позики</p>
-      <p class="contents1SectionBlack">15 000 грн.</p>
-    </div>
-    <button>
-      <img src="img/history.svg" alt="arrowsPrev">
-      Історія операцій кредиту
-    </button>
-    <button>
-      <img src="img/arrowsPrev.svg" alt="arrowsPrev">
-      До списку кредитів
-    </button>
-  </div>
-
-  <div class="contents1">
-    <h2>Погасити кредит</h2>
-    <form>
-        <div class="radioCredit">
-          <input type="radio" name="credit" id="credit1" checked />
-          <label for="credit1">Всю суму</label>
-          <p>15 129,6</p>
+      <h2>Виконайте ідентифікацію
+        з використанням Системи BankID НБУ</h2>
+      <div class="contents1GalleryBank">
+        <span>Оберіть свій банк</span>
+        <div class="contents1GalleryBankContainer">
+          <div class="contents1GalleryBankContainerSection">
+            <img src="img/imgBank1.png" alt="">
+          </div>
+          <div class="contents1GalleryBankContainerSection">
+            <img src="img/imgBank2.png" alt="">
+          </div>
+          <div class="contents1GalleryBankContainerSection">
+            <img src="img/imgBank3.png" alt="">
+          </div>
+          <div class="contents1GalleryBankContainerSection">
+            <img src="img/imgBank4.png" alt="">
+          </div>
+          <div class="contents1GalleryBankContainerSection">
+            <img src="img/imgBank5.png" alt="">
+          </div>
+          <div class="contents1GalleryBankContainerSection">
+            <img src="img/imgBank6.png" alt="">
+          </div>
         </div>
-        <div class="radioCredit">
-          <input type="radio" name="credit" id="credit2" />
-          <label for="credit2">Поточний платіж</label>
-          <p>15 129,6</p>
+      </div>
+      <button class="circle-arrows">
+        <img src="img/circle-arrows.png" alt="arrowsPrev">
+        Показати ще
+      </button>
+      <button>
+        <img src="img/arrowsPrev.svg" alt="arrowsPrev">
+        Назад
+      </button>
+      <div class="contents1Section">
+          <p class="contents1SectionGray">Номер кредиту</p>
+          <p class="contents1SectionBlack">1304682935811</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Строк позики</p>
+        <p class="contents1SectionBlack">300 дн.</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Повернути до</p>
+        <p class="contents1SectionBlack">13.12.2023</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Графік оплат</p>
+        <p class="contents1SectionBlue">10 частини по 1514,68 грн</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Сума позики</p>
+        <p class="contents1SectionBlack">13 000 грн.</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Повертаєте</p>
+        <p class="contents1SectionBlack">1514,8 грн.</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Картка</p>
+        <p class="contents1SectionBlack">537675******4450</p>
+      </div>
+      <button>
+        <img src="img/arrowsPrev.svg" alt="arrowsPrev">
+        До списку кредитів
+      </button>
+    </div>
+
+    <!-- Підтвердіть email -->
+    <div class="contents1">
+      <h2>Підтвердіть email</h2>
+      <p class="blueText">Ми надіслали вам листа, перейдіть за посиланням для підтвердження
+        Якщо email помилковий, виправте його, ми надішлемо нового листа</p>
+      <div class="contents1Email">
+        <div class="contents1EmailFlex">
+          <span>Email</span>
+          <p>mailmail@gmail.com</p>
         </div>
-        <div class="radioCredit">
-          <input type="radio" name="credit" id="credit3" />
-          <label for="credit3">Довільна сума</label>
-          <input type="text" placeholder="0">
-        </div>  
-    </form>
-    <form>
-      <p>Картка для списання</p>
-      <div class="radioCredit radioCredit2">
-        <input type="radio" name="credit" id="creditS1" checked />
-        <label for="creditS1"></label>
-        <img src="img/card.png" alt="">
-        <button>
-          <img src="img/to.svg" alt="">
+        <img src="img/like.svg" alt="like">
+      </div>
+      <p class="contents1Timer">Надіслати ще раз через 0:52</p>
+      <div class="contents1Section">
+          <p class="contents1SectionGray">Номер кредиту</p>
+          <p class="contents1SectionBlack">1304682935811</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Строк позики</p>
+        <p class="contents1SectionBlack">300 дн.</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Повернути до</p>
+        <p class="contents1SectionBlack">13.12.2023</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Графік оплат</p>
+        <p class="contents1SectionBlue">10 частини по 1514,68 грн</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Сума позики</p>
+        <p class="contents1SectionBlack">13 000 грн.</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Повертаєте</p>
+        <p class="contents1SectionBlack">1514,8 грн.</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Картка</p>
+        <p class="contents1SectionBlack">537675******4450</p>
+      </div>
+      <button>
+        <img src="img/arrowsPrev.svg" alt="arrowsPrev">
+        До списку кредитів
+      </button>
+    </div>
+
+    <!-- Підпишіть договір -->
+    <div class="contents1">
+      <h2>Підпишіть договір</h2>
+      <div class="dogovor">
+        <p>Петров Петро Петрович, якщо Ви згодні з умовами договору, введіть код з sms.</p>
+        <button class="downlod">
+          <img src="img/downlod.svg" alt="">
+          Завантажити Пакет документів до договору кредиту у PDF
         </button>
+        <p>На номер 380674042507 відправлено sms з кодом підтвердження.</p>
       </div>
-      <div class="radioCredit radioCredit2">
-        <label for="photo" class="photo-label">
-          <input type="file" id="photo" name="photo">
-          Сплатити іншою картою
+      <form>
+        <input type="text" placeholder="Код з SMS">
+        <input type="submit" value="Увійти" class="submitForm">
+      </form>
+      <p class="contents1Timer">Надіслати ще раз через 0:52</p>
+      <div class="contents1Section">
+          <p class="contents1SectionGray">Номер кредиту</p>
+          <p class="contents1SectionBlack">1304682935811</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Строк позики</p>
+        <p class="contents1SectionBlack">300 дн.</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Повернути до</p>
+        <p class="contents1SectionBlack">13.12.2023</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Графік оплат</p>
+        <p class="contents1SectionBlue">10 частини по 1514,68 грн</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Сума позики</p>
+        <p class="contents1SectionBlack">13 000 грн.</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Повертаєте</p>
+        <p class="contents1SectionBlack">1514,8 грн.</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Картка</p>
+        <p class="contents1SectionBlack">537675******4450</p>
+      </div>
+      <button>
+        <img src="img/arrowsPrev.svg" alt="arrowsPrev">
+        До списку кредитів
+      </button>
+    </div>
+
+    <!-- Необхідно більше інформації -->
+    <div class="contents1">
+      <h2>Необхідно більше інформації</h2>
+      <p class="blueText">Для прийняття рішення нам необхідно знати більше про вас.</p>
+      <form>
+        <p>Додаткова контактна особа</p>
+        <select name="" id="">
+          <option value="">Тип відносин</option>
+          <option value="">Тип відносин</option>
+          <option value="">Тип відносин</option>
+        </select>
+        <input type="text" placeholder="Прізвище">
+        <input type="text" placeholder="Ім’я">
+        <input type="text" placeholder="По батькові">
+        <input type="tel" placeholder="(+380)_ _  _ _ _  _ _  _ _">
+        <input type="submit" value="Увійти" class="submitForm">
+      </form>
+      <div class="contents1Section">
+          <p class="contents1SectionGray">Номер кредиту</p>
+          <p class="contents1SectionBlack">1304682935811</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Строк позики</p>
+        <p class="contents1SectionBlack">300 дн.</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Повернути до</p>
+        <p class="contents1SectionBlack">13.12.2023</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Графік оплат</p>
+        <p class="contents1SectionBlue">10 частини по 1514,68 грн</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Сума позики</p>
+        <p class="contents1SectionBlack">13 000 грн.</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Повертаєте</p>
+        <p class="contents1SectionBlack">1514,8 грн.</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Картка</p>
+        <p class="contents1SectionBlack">537675******4450</p>
+      </div>
+      <button>
+        <img src="img/arrowsPrev.svg" alt="arrowsPrev">
+        До списку кредитів
+      </button>
+    </div>
+
+    <!-- Необхідно більше інформації -->
+    <div class="contents1">
+      <h2>Необхідно більше інформації</h2>
+      <p class="blueText">Для прийняття рішення нам необхідно знати більше про вас.</p>
+      <form>
+        <p>Селфі з паспортом</p>
+        <label for="photoS" class="photo-label">
+          <input type="file" id="photoS" name="photo">
+          Додати фото
         </label>
+        <input type="submit" value="Увійти" class="submitForm">
+      </form>
+      <div class="contents1Section">
+          <p class="contents1SectionGray">Номер кредиту</p>
+          <p class="contents1SectionBlack">1304682935811</p>
       </div>
-    </form>
-    <a href="#"class="submitForm">Сплатити</a>
-    <button style="margin-top: 0;">
-      <img src="img/arrowsPrev.svg" alt="arrowsPrev">
-      Назад
-    </button>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Строк позики</p>
+        <p class="contents1SectionBlack">300 дн.</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Повернути до</p>
+        <p class="contents1SectionBlack">13.12.2023</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Графік оплат</p>
+        <p class="contents1SectionBlue">10 частини по 1514,68 грн</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Сума позики</p>
+        <p class="contents1SectionBlack">13 000 грн.</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Повертаєте</p>
+        <p class="contents1SectionBlack">1514,8 грн.</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Картка</p>
+        <p class="contents1SectionBlack">537675******4450</p>
+      </div>
+      <button>
+        <img src="img/arrowsPrev.svg" alt="arrowsPrev">
+        До списку кредитів
+      </button>
+    </div>
+
+    <!-- Геолокація -->
+    <div class="contents1">
+      <h2>Геолокація</h2>
+      <p class="blueText">Для подачі заявки необхідно надати дозвіл браузеру на визначення геолокації</p>
+      <p style="text-align: center; margin-bottom: 30px; margin-top: 30px;">Додаткова інформація — визначення місцезнаходження</p>
+      <a href="#"class="submitForm">Увійти</a>
+      <div class="contents1Section">
+          <p class="contents1SectionGray">Номер кредиту</p>
+          <p class="contents1SectionBlack">1304682935811</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Строк позики</p>
+        <p class="contents1SectionBlack">300 дн.</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Повернути до</p>
+        <p class="contents1SectionBlack">13.12.2023</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Графік оплат</p>
+        <p class="contents1SectionBlue">10 частини по 1514,68 грн</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Сума позики</p>
+        <p class="contents1SectionBlack">13 000 грн.</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Повертаєте</p>
+        <p class="contents1SectionBlack">1514,8 грн.</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Картка</p>
+        <p class="contents1SectionBlack">537675******4450</p>
+      </div>
+      <button>
+        <img src="img/arrowsPrev.svg" alt="arrowsPrev">
+        До списку кредитів
+      </button>
+    </div>
+
+    <!-- Графік оплат: -->
+    <div class="contents1 contents1Hidden">
+      <span class="close">&times;</span>
+      <h2 class="contents1FlexH2">Графік оплат:</h2>
+      <div class="contents1Scroll">
+        <div class="contents1Section">
+          <span>1</span>
+          <p class="contents1SectionBlack">до Пт, 17.03.2023</p>
+          <p class="contents1SectionBlue">1514, 68 грн.</p>
+        </div>
+        <div class="contents1Section">
+          <span>2</span>
+          <p class="contents1SectionRed">до Пт, 17.03.2023</p>
+          <p class="contents1SectionBlue">1514, 68 грн.</p>
+        </div>
+        <div class="contents1Section">
+          <span>3</span>
+          <p class="contents1SectionBlack">до Пт, 17.03.2023</p>
+          <p class="contents1SectionBlue">1514, 68 грн.</p>
+        </div>
+        <div class="contents1Section">
+          <span>4</span>
+          <p class="contents1SectionBlack">до Пт, 17.03.2023</p>
+          <p class="contents1SectionBlue">1514, 68 грн.</p>
+        </div>
+        <div class="contents1Section">
+          <span>5</span>
+          <p class="contents1SectionBlack">до Пт, 17.03.2023</p>
+          <p class="contents1SectionBlue">1514, 68 грн.</p>
+        </div>
+        <div class="contents1Section">
+          <span>6</span>
+          <p class="contents1SectionRed">до Пт, 17.03.2023</p>
+          <p class="contents1SectionBlue">1514, 68 грн.</p>
+        </div>
+        <div class="contents1Section">
+          <span>7</span>
+          <p class="contents1SectionBlack">до Пт, 17.03.2023</p>
+          <p class="contents1SectionBlue">1514, 68 грн.</p>
+        </div>
+        <div class="contents1Section">
+          <span>3</span>
+          <p class="contents1SectionBlack">до Пт, 17.03.2023</p>
+          <p class="contents1SectionBlue">1514, 68 грн.</p>
+        </div>
+        <div class="contents1Section">
+          <span>4</span>
+          <p class="contents1SectionBlack">до Пт, 17.03.2023</p>
+          <p class="contents1SectionBlue">1514, 68 грн.</p>
+        </div>
+        <div class="contents1Section">
+          <span>5</span>
+          <p class="contents1SectionBlack">до Пт, 17.03.2023</p>
+          <p class="contents1SectionBlue">1514, 68 грн.</p>
+        </div>
+        <div class="contents1Section">
+          <span>6</span>
+          <p class="contents1SectionRed">до Пт, 17.03.2023</p>
+          <p class="contents1SectionBlue">1514, 68 грн.</p>
+        </div>
+        <div class="contents1Section">
+          <span>7</span>
+          <p class="contents1SectionBlack">до Пт, 17.03.2023</p>
+          <p class="contents1SectionBlue">1514, 68 грн.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Кредит активний -->
+    <div class="contents1">
+      <h2>Кредит активний</h2>
+      <a href="#"class="submitForm">Погасити</a>
+      <div class="contents1Section">
+          <p class="contents1SectionGray">Наступний платіж</p>
+          <p class="contents1SectionRed">1496,16 грн, <br>
+            до Чт, 23.02.2023</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Сума погашення на сьогодні</p>
+        <p class="contents1SectionBlue">15 129,6 грн</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Поточний платіж</p>
+        <p class="contents1SectionBlue">1496,16 грн</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Графік оплат</p>
+        <p class="contents1SectionBlue">12 частини по 1496,16 грн</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Строк позики</p>
+        <p class="contents1SectionBlack">360 днів</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Повернути до</p>
+        <p class="contents1SectionBlack">20.01.2024</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Номер кредиту</p>
+        <p class="contents1SectionBlack">1304682935811</p>
+      </div>
+      <div class="contents1Section">
+        <p class="contents1SectionGray">Сума позики</p>
+        <p class="contents1SectionBlack">15 000 грн.</p>
+      </div>
+      <button>
+        <img src="img/history.svg" alt="arrowsPrev">
+        Історія операцій кредиту
+      </button>
+      <button>
+        <img src="img/arrowsPrev.svg" alt="arrowsPrev">
+        До списку кредитів
+      </button>
+    </div>
+
+    <!-- Погасити кредит -->
+    <div class="contents1">
+      <h2>Погасити кредит</h2>
+      <form>
+          <div class="radioCredit">
+            <input type="radio" name="credit" id="credit1" checked />
+            <label for="credit1">Всю суму</label>
+            <p>15 129,6</p>
+          </div>
+          <div class="radioCredit">
+            <input type="radio" name="credit" id="credit2" />
+            <label for="credit2">Поточний платіж</label>
+            <p>15 129,6</p>
+          </div>
+          <div class="radioCredit">
+            <input type="radio" name="credit" id="credit3" />
+            <label for="credit3">Довільна сума</label>
+            <input type="text" placeholder="0">
+          </div>  
+      </form>
+      <form>
+        <p>Картка для списання</p>
+        <div class="radioCredit radioCredit2">
+          <input type="radio" name="credit" id="creditS1" checked />
+          <label for="creditS1"></label>
+          <img src="img/card.png" alt="">
+          <button>
+            <img src="img/to.svg" alt="">
+          </button>
+        </div>
+        <div class="radioCredit radioCredit2">
+          <label for="photo" class="photo-label">
+            <input type="file" id="photo" name="photo">
+            Сплатити іншою картою
+          </label>
+        </div>
+      </form>
+      <a href="#"class="submitForm">Сплатити</a>
+      <button style="margin-top: 0;">
+        <img src="img/arrowsPrev.svg" alt="arrowsPrev">
+        Назад
+      </button>
+    </div>
+
+    <!-- Історія операцій за кредитом -->
+    <div class="contents1">
+      <h2>Історія операцій за кредитом</h2>
+      <div class="tabsContainer">
+        <div class="tabs">
+          <button class="tablinks active" onclick="openTab(event, 'tab1')">Нарахування</button>
+          <button class="tablinks" onclick="openTab(event, 'tab2')">Погашення</button>
+        </div>
+
+        <div id="tab1" class="tabcontent active">
+          <div class="tabcontentContainer">
+              <img src="img/pro.svg" alt="">
+              <div class="tabcontentContainerFlex">
+                <span>28 січня 2023</span>
+                <p>Нарахування: Відсотки</p>
+              </div>
+              <p class="contents1SectionBlack">14,40</p>
+          </div>
+          <div class="tabcontentContainer">
+            <img src="img/pro.svg" alt="">
+            <div class="tabcontentContainerFlex">
+              <span>28 січня 2023</span>
+              <p>Нарахування: Відсотки</p>
+            </div>
+            <p class="contents1SectionBlack">14,40</p>
+        </div>
+        <div class="tabcontentContainer">
+          <img src="img/pro.svg" alt="">
+          <div class="tabcontentContainerFlex">
+            <span>28 січня 2023</span>
+            <p>Нарахування: Відсотки</p>
+          </div>
+          <p class="contents1SectionBlack">14,40</p>
+        </div>
+        <div class="tabcontentContainer">
+          <img src="img/pro.svg" alt="">
+          <div class="tabcontentContainerFlex">
+            <span>28 січня 2023</span>
+            <p>Нарахування: Відсотки</p>
+          </div>
+          <p class="contents1SectionBlack">14,40</p>
+        </div>
+        <div class="tabcontentContainer">
+          <img src="img/up-solid.svg" alt="">
+          <div class="tabcontentContainerFlex">
+            <span>28 січня 2023</span>
+            <p>Нарахування: Відсотки</p>
+          </div>
+          <p class="contents1SectionBlack">14,40</p>
+          </div>
+        </div>
+        
+        <div id="tab2" class="tabcontent">
+          <div class="tabcontentContainer">
+            <img src="img/pro.svg" alt="">
+            <div class="tabcontentContainerFlex">
+              <span>28 січня 2023</span>
+              <p>Нарахування: Відсотки</p>
+            </div>
+            <p class="contents1SectionBlack">14,40</p>
+        </div>
+        <div class="tabcontentContainer">
+          <img src="img/pro.svg" alt="">
+          <div class="tabcontentContainerFlex">
+            <span>28 січня 2023</span>
+            <p>Нарахування: Відсотки</p>
+          </div>
+          <p class="contents1SectionBlack">14,40</p>
+      </div>
+      <div class="tabcontentContainer">
+        <img src="img/pro.svg" alt="">
+        <div class="tabcontentContainerFlex">
+          <span>28 січня 2023</span>
+          <p>Нарахування: Відсотки</p>
+        </div>
+        <p class="contents1SectionBlack">14,40</p>
+      </div>
+      <div class="tabcontentContainer">
+        <img src="img/pro.svg" alt="">
+        <div class="tabcontentContainerFlex">
+          <span>28 січня 2023</span>
+          <p>Нарахування: Відсотки</p>
+        </div>
+        <p class="contents1SectionBlack">14,40</p>
+      </div>
+      <div class="tabcontentContainer">
+        <img src="img/up-solid.svg" alt="">
+        <div class="tabcontentContainerFlex">
+          <span>28 січня 2023</span>
+          <p>Нарахування: Відсотки</p>
+        </div>
+        <p class="contents1SectionBlack">14,40</p>
+        </div>
+        </div>
+        
+      </div>
+      <p class="blueText" style="margin-bottom: 30px; text-align: center;">Пакет документів договора кредиту з ЕЦП</p>
+      <button style="margin-top: 0;">
+        <img src="img/arrowsPrev.svg" alt="arrowsPrev">
+        Назад
+      </button>
+    </div>
+
+    <!-- Сплатити за номером телефону  -->
+    <div class="contents1">
+      <h2>Сплатити за номером телефону</h2>
+      <p class="blueText" style="margin-bottom: 14px;">Ви можете сплатити займ, маючи тільки номер телефону, на який була оформлена реєстрація.</p>
+      <form>
+        <input type="tel" name="phone" placeholder="(+380)_ _  _ _ _  _ _  _ _" required>
+        <div class="smoolInputFlex">
+          <p>Сумма сплати</p>
+          <input type="text" class="smoolInput">
+        </div>
+      </form>
+      <a href="#"class="submitForm" style="margin-bottom: 0;">Далі</a>
+    </div>
+
+    <!-- Кредити и Архів -->
+    <div class="contents1">
+      <div class="tabsContainer">
+        <div class="tabs">
+          <button class="tablinks1 active" onclick="openTab1(event, 'tab3')">Кредити</button>
+          <button class="tablinks1" onclick="openTab1(event, 'tab4')">Архів</button>
+        </div>
+
+        <div id="tab3" class="tabcontent1 active">
+          <h2>Tab 1 Content</h2>
+        </div>
+        
+        <div id="tab4" class="tabcontent1">
+          <h2>Tab 2 Content</h2>
+        </div>
+        
+      </div>
+      <a href="#"class="submitForm" style="margin-bottom: 0;">Візьміть до 29 990 грн</a>
+      <div class="tabsContainerInfo">
+        <p>Анкета</p>
+        <a href="#">Продовжити оформлення</a>
+      </div>
+
+    </div>
+
+    <!-- Кабинет -->
+    <div class="cabinet">
+        <p class="cabinetName">Петров Петро Петрович</p>
+        <ul class="cabinetNavigation">
+          <li>
+            <a href="#">Кредити</a>
+          </li>
+          <li>
+            <a href="#">Особисті дані</a>
+          </li>
+          <li>
+            <a href="#">Мої банківські картки</a>
+          </li>
+        </ul>
+        <ul class="cabinetOption">
+          <li>
+            <a href="#">
+              <img src="img/option1.svg" alt="">
+              Налаштування
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="img/option2.svg" alt="">
+              Допомога
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="img/option3.svg" alt="">
+              Вийти з аккаунту
+            </a>
+          </li>
+        </ul>
+    </div>
   </div>
 
-</div>
+  <!-- Регистрация -->
+  <div id="modalWindow" class="modalWindow">
+    <div class="modalWindow-content">
+      <span class="closeWindow">&times;</span>
+      <div class="tabsWindow">
+        <button class="tablinkWindow active" data-tab="tablinkWindow1">Вкладка 1</button>
+        <button class="tablinkWindow" data-tab="tablinkWindow2">Вкладка 2</button>
+        <button class="tablinkWindow" data-tab="tablinkWindow3">Вкладка 3</button>
+      </div>
+      <div id="tablinkWindow1" class="tablinkWindowContent active">
+        <h3>Вкладка 1</h3>
+        <p>Содержимое вкладки 1</p>
+        <div class="tab-navigation">
+          <button class="prev" onclick="prevTab()">Предыдущая</button>
+          <button class="next" onclick="nextTab()">Следующая</button>
+        </div>
+      </div>
+      <div id="tablinkWindow2" class="tablinkWindowContent">
+        <h3>Вкладка 2</h3>
+        <p>Содержимое вкладки 2</p>
+        <div class="tab-navigation">
+          <button class="prev" onclick="prevTab()">Предыдущая</button>
+          <button class="next" onclick="nextTab()">Следующая</button>
+        </div>
+      </div>
+      <div id="tablinkWindow3" class="tablinkWindowContent">
+        <h3>Вкладка 3</h3>
+        <p>Содержимое вкладки 3</p>
+        <div class="tab-navigation">
+          <button class="prev" onclick="prevTab()">Предыдущая</button>
+          <button class="next" onclick="nextTab()">Следующая</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 
 
@@ -764,8 +990,7 @@
 <script src="script/popap.js"></script>
 <script src="script/settings.js"></script>
 <script src="script/cookie.js"></script>
-<script src="script/pesonalInfo.js"></script>
-
+<script src="script/modalRegistration.js"></script>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
