@@ -1874,7 +1874,9 @@ input[type="range"]:active::-webkit-slider-thumb{
   color: #5F7EE1;
   text-decoration: none;
 }
-
+.recaptcha {
+  margin-bottom: 20px;
+}
 
 
 

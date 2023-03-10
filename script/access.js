@@ -77,10 +77,7 @@ function nextTab2() {
   openTab2(event, tabContents2[activeTab2].id);
 }
 
-// По умолчанию показываем первую вкладку
-document.getElementById('tab5').classList.add('active');
-document.querySelector('.tablinks2.active').classList.remove('active');
-document.querySelector('.tablinks2').classList.add('active');
+
 
 // Добавляем обработчики событий на кнопки переключения вкладок
 document.querySelectorAll('.prev').forEach(function(button) {
