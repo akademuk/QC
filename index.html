@@ -13,7 +13,7 @@
   <button id="loginBtn">Войти</button>
   <button id="loginBtn1">Відновити пароль по Email</button>
   <button id="settingsBtn">Налаштування</button>
-  <button id="open-modal">Открыть модальное окно</button>
+  <a href="registration.html">Регистрация</button>
 
 
   <!-- Модальное окно для входа -->
@@ -756,8 +756,9 @@
             Сплатити іншою картою
           </label>
         </div>
+        <input type="submit" value="Сплатити" class="submitForm">
       </form>
-      <a href="#"class="submitForm">Сплатити</a>
+
       <button style="margin-top: 0;">
         <img src="img/arrowsPrev.svg" alt="arrowsPrev">
         Назад
@@ -877,8 +878,8 @@
           <p>Сумма сплати</p>
           <input type="text" class="smoolInput">
         </div>
+        <input type="submit" value="Далі" class="submitForm" style="margin-bottom: 0;">
       </form>
-      <a href="#"class="submitForm" style="margin-bottom: 0;">Далі</a>
     </div>
 
     <!-- Кредити и Архів -->
@@ -896,7 +897,6 @@
         <div id="tab4" class="tabcontent1">
           <h2>Tab 2 Content</h2>
         </div>
-        
       </div>
       <a href="#"class="submitForm" style="margin-bottom: 0;">Візьміть до 29 990 грн</a>
       <div class="tabsContainerInfo">
@@ -904,6 +904,156 @@
         <a href="#">Продовжити оформлення</a>
       </div>
 
+    </div>
+
+    <!-- Сформуйте заявку для отримання коштів -->
+    <div class="contents1">
+      <div class="credit_onlineContainer">
+        <div class="credit_onlineContainerLeft" id="fields">
+            <h2>Сформуйте заявку <br>
+              для отримання коштів</h2>
+            <form class="rangeForm" id="ajax-contact-form">
+                <div class="sliderMoney">
+                    <div class="sliderContainerText">
+                        <div class="maxLenghtContent">
+                            <p>Сума позики</p>
+                            <div id="innerMoney">0</div>
+                        </div>
+                        <div class="maxLenght">
+                            <p>від 500,00 грн.</p>
+                            <p>до 15 000,00 грн.</p>
+                        </div>
+                    </div>
+                    <input type="range" id="valueMoney" min="500" max="18000" value="0" step="100" oninput="rangeMoney()">
+                </div>
+                <div class="sliderDate">
+                    <div class="sliderContainerText">
+                        <div class="maxLenghtContent">
+                            <p>Срок платежу</p>
+                            <div id="innerDate">0</div>
+                        </div>
+                        <div class="maxLenght">
+                            <p>від 2 днів</p>
+                            <p>до 30 днів</p>
+                        </div>
+                    </div>
+                    <input type="range" id="valueDate" min="0" max="30" value="0" oninput="rangeMoney()">
+                </div>
+                <div class="formContainer">
+                    <div class="formContainerLeft">
+                        <div class="claculatorContainer">
+                          <div class="claculatorContainerSection">
+                              <p class="claculatorContainerSectionText">Повернути до</p>
+                              <p class="claculatorContainerSectionText">Повертаєте</p>
+                              <p class="claculatorContainerSectionText">Відсотки</p>
+                          </div>
+                          <div class="claculatorContainerSection claculatorContainerSectionCenter">
+                            <p class="claculatorContainerSectionText" id="resultDate"></p>
+                            <p class="claculatorContainerSectionText" id="resultSum" class="boldResult">0</p>
+                            <p class="claculatorContainerSectionText" id="resultPercent"></p>
+                          </div>
+                          <div class="claculatorContainerSection claculatorContainerSectionCenterRight">
+                            <p class="claculatorContainerSectionText">к-ть оплат: 10</p>
+                            <p class="claculatorContainerSectionText">по 1515 грн.</p>
+                            <p class="claculatorContainerSectionText">за 300 днів</p>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <form>
+              <p>Картка для зарахування</p>
+              <div class="radioCredit radioCredit2">
+                <input type="radio" name="credit" id="creditS1" checked />
+                <label for="creditS1"></label>
+                <img src="img/card.png" alt="">
+                <button>
+                  <img src="img/to.svg" alt="">
+                </button>
+              </div>
+              <div class="radioCredit radioCredit2">
+                <label for="photo" class="photo-label">
+                  <input type="file" id="photo" name="photo">
+                  Сплатити іншою картою
+                </label>
+              </div>
+              <div class="modalWindowContainerSection">
+                <span>Ціль кредиту</span>
+                <select>
+                    <option value="">Інше</option>
+                    <option value="">Інше</option>
+                    <option value="">Інше</option>
+                </select>
+            </div>
+            <input type="submit" value="Отримати гроші" class="submitForm" style="margin-bottom: 0;">
+            </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Калькулятор -->
+    <div class="contents1">
+      <div class="credit_onlineContainer credit_onlineContainerFlex">
+        <div class="credit_onlineContainerLeft" id="fields">
+          <form class="rangeForm" id="ajax-contact-form">
+            <div class="sliderMoney">
+              <div class="sliderContainerText">
+                <div class="maxLenghtContent">
+                  <p>Сума позики</p>
+                  <div id="innerMoney">0</div>
+                </div>
+                <div class="maxLenght">
+                  <p>від 500,00 грн.</p>
+                  <p>до 15 000,00 грн.</p>
+                </div>
+              </div>
+              <input type="range" id="valueMoney" min="500" max="18000" value="0" step="100" oninput="rangeMoney()">
+            </div>
+            <div class="sliderDate">
+              <div class="sliderContainerText">
+                <div class="maxLenghtContent">
+                  <p>Срок платежу</p>
+                  <div id="innerDate">0</div>
+                </div>
+                <div class="maxLenght">
+                  <p>від 2 днів</p>
+                  <p>до 30 днів</p>
+                </div>
+              </div>
+              <input type="range" id="valueDate" min="0" max="30" value="0" oninput="rangeMoney()">
+            </div>
+            <div class="formContainer">
+              <div class="formContainerLeft">
+                <div class="claculatorContainer claculatorContainerFlex" style="padding-bottom: 30px;">
+                  <div class="clasFlex">
+                    <div class="claculatorContainerSectionFlex">
+                      <p class="claculatorContainerSectionText">Повернути до</p>
+                      <p class="claculatorContainerSectionText" id="resultDate">Fri, 13.12.2023</p>
+                    </div>
+                    <div class="claculatorContainerSectionFlex">
+                      <p class="claculatorContainerSectionText">Повертаєте</p>
+                      <p class="claculatorContainerSectionText" id="resultSum" class="boldResult">1002 грн.</p>
+                    </div>
+                    <div class="claculatorContainerSectionFlex">
+                      <p class="claculatorContainerSectionText">Відсотки</p>
+                      <p class="claculatorContainerSectionText" id="resultPercent">2 грн.</p>
+                    </div>
+                  </div>
+                  <a href="#"class="submitForm" style="margin-bottom: 0; margin-top: 30px;">Увійти</a>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="contents1Promo">
+          <a href="#">В мене є промокод</a>
+        </div>
+        <div class="sumCredit">
+          <p><a href="#">Розрахувати вартість кредиту
+            тут.</a>*Повні умови позики читайте<a href="#"> тут.</a>
+          </p>
+        </div>
+      </div>
     </div>
 
     <!-- Кабинет -->
@@ -943,41 +1093,6 @@
     </div>
   </div>
 
-  <!-- Регистрация -->
-  <div id="modalWindow" class="modalWindow">
-    <div class="modalWindow-content">
-      <span class="closeWindow">&times;</span>
-      <div class="tabsWindow">
-        <button class="tablinkWindow active" data-tab="tablinkWindow1">Вкладка 1</button>
-        <button class="tablinkWindow" data-tab="tablinkWindow2">Вкладка 2</button>
-        <button class="tablinkWindow" data-tab="tablinkWindow3">Вкладка 3</button>
-      </div>
-      <div id="tablinkWindow1" class="tablinkWindowContent active">
-        <h3>Вкладка 1</h3>
-        <p>Содержимое вкладки 1</p>
-        <div class="tab-navigation">
-          <button class="prev" onclick="prevTab()">Предыдущая</button>
-          <button class="next" onclick="nextTab()">Следующая</button>
-        </div>
-      </div>
-      <div id="tablinkWindow2" class="tablinkWindowContent">
-        <h3>Вкладка 2</h3>
-        <p>Содержимое вкладки 2</p>
-        <div class="tab-navigation">
-          <button class="prev" onclick="prevTab()">Предыдущая</button>
-          <button class="next" onclick="nextTab()">Следующая</button>
-        </div>
-      </div>
-      <div id="tablinkWindow3" class="tablinkWindowContent">
-        <h3>Вкладка 3</h3>
-        <p>Содержимое вкладки 3</p>
-        <div class="tab-navigation">
-          <button class="prev" onclick="prevTab()">Предыдущая</button>
-          <button class="next" onclick="nextTab()">Следующая</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
 
 
@@ -990,7 +1105,7 @@
 <script src="script/popap.js"></script>
 <script src="script/settings.js"></script>
 <script src="script/cookie.js"></script>
-<script src="script/modalRegistration.js"></script>
+<script src="script/range-slider.js"></script>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {

@@ -4,27 +4,12 @@ const modalWindow = document.getElementById('modalWindow');
 const closeModalButton = document.querySelector('.closeWindow');
 const tabLinks = document.querySelectorAll('.tablinkWindow');
 const tabContents = document.querySelectorAll('.tablinkWindowContent');
-const prevButton = document.querySelectorAll('.prev');
-const nextButton = document.querySelectorAll('.next');
 let activeTab = 0;
 
-// Открываем модальное окно при клике на кнопку
-openModalButton.addEventListener('click', function() {
-    modalWindow.style.display = 'block';
-});
 
 // Закрываем модальное окно при клике на крестик
 closeModalButton.addEventListener('click', function() {
-    modalWindow.style.display = 'none';
-});
-
-// Переключение между вкладками
-tabLinks.forEach(function(tabLink) {
-  tabLink.addEventListener('click', function() {
-    const tab = this.getAttribute('data-tab');
-    activeTab = parseInt(tab.charAt(tab.length-1)) - 1;
-    setActiveTab();
-  });
+  modalWindow.style.display = 'none';
 });
 
 // Функция, которая показывает текущую вкладку и скрывает остальные
