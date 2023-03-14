@@ -746,6 +746,7 @@ form input[type="checkbox"] {
   color: #5F7EE1;
 }
 .contents1 button {
+  font-family: 'Gilroy-Regular';
   margin-top: 16px;
   width: 100%;
   display: flex;
@@ -1877,10 +1878,30 @@ input[type="range"]:active::-webkit-slider-thumb{
 .recaptcha {
   margin-bottom: 20px;
 }
-
-
-
-
+.dopInfo {
+  font-size: 20px;
+  text-align: center;
+}
+.maxLenghtContent > p {
+  font-size: 22px;
+  font-family: 'Gilroy-Regular';
+}
+.smoolInputFlexAfter {
+  position: relative;
+}
+.smoolInputFlexAfter::after {
+  content: "грн";
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-family: 'Gilroy-Regular';
+  font-size: 16px;
+  line-height: 120%;
+  color: #797979;
+}
+.smoolInput {
+  padding-right: 50px;
+}
 
 
 

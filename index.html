@@ -572,8 +572,8 @@
     <div class="contents1">
       <h2>Геолокація</h2>
       <p class="blueText">Для подачі заявки необхідно надати дозвіл браузеру на визначення геолокації</p>
-      <p style="text-align: center; margin-bottom: 30px; margin-top: 30px;">Додаткова інформація — визначення місцезнаходження</p>
-      <a href="#"class="submitForm">Увійти</a>
+      <p style="text-align: center; margin-bottom: 30px; margin-top: 30px;" class="dopInfo">Додаткова інформація — визначення місцезнаходження</p>
+      <a href="#"class="submitForm">Визначити</a>
       <div class="contents1Section">
           <p class="contents1SectionGray">Номер кредиту</p>
           <p class="contents1SectionBlack">1304682935811</p>
@@ -879,7 +879,9 @@
         <input type="tel" name="phone" placeholder="(+380)_ _  _ _ _  _ _  _ _" required>
         <div class="smoolInputFlex">
           <p>Сумма сплати</p>
-          <input type="text" class="smoolInput">
+          <div class="smoolInputFlexAfter">
+            <input type="text" class="smoolInput">
+          </div>
         </div>
         <input type="submit" value="Далі" class="submitForm" style="margin-bottom: 0;">
       </form>
