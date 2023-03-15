@@ -1902,11 +1902,24 @@ input[type="range"]:active::-webkit-slider-thumb{
 .smoolInput {
   padding-right: 50px;
 }
-
-
-
-
-
+.maxLenght p{
+  font-size: 14px;
+}
+#resultDate {
+  color: #141414;
+  margin-top: 10px;
+}
+#resultSum {
+  color: #141414;
+  margin-top: 10px;
+}
+#resultPercent {
+  color: #141414;
+  margin-top: 10px;
+}
+.flexinf {
+  align-items: flex-end;
+}
 
 
 
