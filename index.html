@@ -94,9 +94,15 @@
       <div class="login-form">
         <form id="login">
           <h2>Вход в личный кабинет</h2>
-            <input type="tel" name="phone" placeholder="(+380)_ _  _ _ _  _ _  _ _" required>
+            <div class="modalWindowContainerSection">
+              <span class="placeholderText">Телефон</span>
+              <input type="tel" name="phone" class="placeholderInput" placeholder="(+380)_ _  _ _ _  _ _  _ _" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
+            </div>
             <span class="error">Поле “Номер телефону” обов’язкове для заповнення</span>
-            <input type="password" id="password" name="password" placeholder="Пароль" required>
+            <div class="modalWindowContainerSection">
+              <span class="placeholderText">Пароль</span>
+              <input type="password" id="password" name="password" class="placeholderInput" placeholder="Пароль" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
+            </div>
             <span class="error">Поле “Пароль” обов’язкове для заповнення</span>
           <div class="show-password">
             <img src="img/eyeOpen.svg" alt="" class="eyeOpen">
@@ -126,10 +132,11 @@
           <div id="email" class="tabcontent active">
             <h3>Ми відправимо Вам листа з посиланням, перейдіть за ним та встановіть новий пароль.</h3>
             <form>
-              <div class="inputContainer">
-                <input type="email" id="email" name="email" placeholder="Email" required>
-                <span class="error">Поле “Email” обов’язкове для заповнення</span>
+              <div class="modalWindowContainerSection">
+                <span class="placeholderText">Email</span>
+                <input type="email" id="email" name="email" class="placeholderInput" placeholder="Email" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
               </div>
+              <span class="error">Поле “Email” обов’язкове для заповнення</span>
               <a href="#" id="confirmationEmail" class="submitForm">Відправити</a></p>
             </form>
           </div>
@@ -137,10 +144,11 @@
           <div id="phone" class="tabcontent">
             <h3>Ми відправимо Вам SMS з кодом, введіть його та вставновіть новий пароль.</h3>
             <form>
-              <div class="inputContainer">
-                <input type="tel" name="phone" placeholder="(+380)_ _  _ _ _  _ _  _ _" required>
-                <span class="error">Поле “Номер телефону” обов’язкове для заповнення</span>
+              <div class="modalWindowContainerSection">
+                <span class="placeholderText">Телефон</span>
+                <input type="tel" name="phone" class="placeholderInput" placeholder="(+380)_ _  _ _ _  _ _  _ _" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
               </div>
+              <span class="error">Поле “Номер телефону” обов’язкове для заповнення</span>
               <a href="#" id="openConfirmationPhone" class="submitForm">Відправити</a></p>
             </form>
           </div>
@@ -161,7 +169,10 @@
         <p>На номер <span>+38 (093) 948 84 94</span> відправлено SMS з кодом</p>
         <form>
           <div class="inputContainer">
-            <input type="text" placeholder="Код з SMS">
+            <div class="modalWindowContainerSection">
+              <span class="placeholderText">Код з SMS</span>
+              <input type="text" class="placeholderInput" placeholder="Код з SMS" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
+            </div>
             <span class="error">Поле “Код з SMS” обов’язкове для заповнення</span>
           </div>
           <a href="#" class="submitForm" id="recoverPhone">Відправити</a></p>
@@ -178,13 +189,19 @@
         <h2>Вигадайте пароль для входу 
           в особистий кабінет</h2>
           <form>
-            <input type="password" id="passwordNew" class="password" name="password" placeholder="Пароль" required>
+            <div class="modalWindowContainerSection">
+              <span class="placeholderText">Пароль</span>
+              <input type="password" id="passwordNew" name="password" placeholder="Пароль" required class="password placeholderInput" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
+            </div>
             <span class="error">Поле “Пароль” обов’язкове для заповнення</span>
             <div class="show-password1">
               <img src="img/eyeOpen.svg" alt="" class="eyeOpen">
               <img src="img/eyeClose.svg" alt="" class="eyeClose active">
             </div>
-            <input type="password" id="confirmPassword" class="password" name="password" placeholder="Підтвердіть пароль" required>
+            <div class="modalWindowContainerSection">
+              <span class="placeholderText">Підтвердіть пароль</span>
+              <input type="password" id="confirmPassword" name="password" placeholder="Підтвердіть пароль" required class="password placeholderInput" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
+            </div>
             <span class="error">Поле “Підтвердіть пароль” обов’язкове для заповнення</span>
             <div class="show-password2">
               <img src="img/eyeOpen.svg" alt="" class="eyeOpen">
@@ -198,7 +215,10 @@
       <div id="registerForm" style="display:none;">
         <form>
         <h2>Для отримання позики необхідно створити особистий кабінет</h2>
-            <input type="tel" name="phone" placeholder="(+380)_ _  _ _ _  _ _  _ _" required>
+        <div class="modalWindowContainerSection">
+          <span class="placeholderText">Телефон</span>
+          <input type="tel" name="phone" class="placeholderInput" placeholder="(+380)_ _  _ _ _  _ _  _ _" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
+        </div>
             <span class="error">Поле “Номер телефону” обов’язкове для заповнення</span>
             <div class="chexbox">
               <input type="checkbox">
@@ -217,13 +237,19 @@
       <span class="close">&times;</span>
       <h2>Відновити пароль по Email</h2>
       <form>
-        <input type="password" id="passwordNewEmail" class="password" name="password" placeholder="Пароль" required>
+        <div class="modalWindowContainerSection">
+          <span class="placeholderText">Пароль</span>
+          <input type="password" id="passwordNewEmail" name="password" placeholder="Пароль" required class="password placeholderInput" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
+        </div>
         <span class="error">Поле “Пароль” обов’язкове для заповнення</span>
         <div class="show-password3">
           <img src="img/eyeOpen.svg" alt="" class="eyeOpen">
           <img src="img/eyeClose.svg" alt="" class="eyeClose active">
         </div>
-        <input type="password" id="confirmPasswordEmail" class="password" name="password" placeholder="Підтвердіть пароль" required>
+        <div class="modalWindowContainerSection">
+          <span class="placeholderText">Підтвердіть пароль</span>
+          <input type="password" id="confirmPasswordEmail" name="password" placeholder="Підтвердіть пароль" required class="password placeholderInput" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
+        </div>
         <span class="error">Поле “Підтвердіть пароль” обов’язкове для заповнення</span>
         <div class="show-password4">
           <img src="img/eyeOpen.svg" alt="" class="eyeOpen">
@@ -240,19 +266,28 @@
       <span class="close">&times;</span>
       <h2>Налаштування</h2>
       <form>
-        <input type="password" id="settingOldPassword" class="password" name="password" placeholder="Старий пароль" required>
+        <div class="modalWindowContainerSection">
+          <span class="placeholderText">Старий пароль</span>
+          <input type="password" id="settingOldPassword" name="password" placeholder="Старий пароль" required class="password placeholderInput" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
+        </div>
         <span class="error">Поле “Старий пароль” обов’язкове для заповнення</span>
         <div class="settingOldPassword">
           <img src="img/eyeOpen.svg" alt="" class="eyeOpen">
           <img src="img/eyeClose.svg" alt="" class="eyeClose active">
         </div>
-        <input type="password" id="settingNewPassword" class="password" name="password" placeholder="Новий пароль" required>
+        <div class="modalWindowContainerSection">
+          <span class="placeholderText">Новий пароль</span>
+          <input type="password" id="settingNewPassword" name="password" placeholder="Новий пароль" required class="password placeholderInput" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
+        </div>
         <span class="error">Поле “Новий пароль” обов’язкове для заповнення</span>
         <div class="settingNewPassword">
           <img src="img/eyeOpen.svg" alt="" class="eyeOpen">
           <img src="img/eyeClose.svg" alt="" class="eyeClose active">
         </div>
-        <input type="password" id="settingRepeatPassword" class="password" name="password" placeholder="Повторіть новий пароль" required>
+        <div class="modalWindowContainerSection">
+          <span class="placeholderText">Повторіть новий пароль</span>
+          <input type="password" id="settingRepeatPassword" name="password" placeholder="Повторіть новий пароль" required class="password placeholderInput" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
+        </div>
         <span class="error">Поле “Повторіть новий пароль” обов’язкове для заповнення</span>
         <div class="settingRepeatPassword">
           <img src="img/eyeOpen.svg" alt="" class="eyeOpen">
@@ -568,7 +603,7 @@
           <form action="">
             <div class="modalWindowContainerSection contents1EmailFlex">
               <span class="placeholderText">Пошта (Email)</span>
-              <input class="placeholderInput" type="email" placeholder="Email" oninput="updateLabelClass()" onblur="updateLabelClass()">
+              <input class="placeholderInput" type="email" placeholder="Email" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
               <img src="img/like.svg" alt="like" class="like">
             </div>
             <span class="error">Поле “Пошта (Email)” обов’язкове для заповнення</span>
@@ -624,7 +659,7 @@
       <form>
         <div class="modalWindowContainerSection contents1EmailFlex">
           <span class="placeholderText">Код з SMS</span>
-          <input class="placeholderInput" type="text" placeholder="Код з SMS" oninput="updateLabelClass()" onblur="updateLabelClass()">
+          <input class="placeholderInput" type="text" placeholder="Код з SMS" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
         </div>
         <span class="error">Поле “Код з SMS” обов’язкове для заповнення</span>
         <input type="submit" value="Увійти" class="submitForm">
@@ -677,22 +712,22 @@
         </select>
         <div class="modalWindowContainerSection contents1EmailFlex">
           <span class="placeholderText">Прізвище</span>
-          <input class="placeholderInput" type="text" placeholder="Прізвище" oninput="updateLabelClass()" onblur="updateLabelClass()">
+          <input class="placeholderInput" type="text" placeholder="Прізвище" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
         </div>
         <span class="error">Поле “Прізвище” обов’язкове для заповнення</span>
         <div class="modalWindowContainerSection contents1EmailFlex">
           <span class="placeholderText">Ім’я</span>
-          <input class="placeholderInput" type="text" placeholder="Ім’я" oninput="updateLabelClass()" onblur="updateLabelClass()">
+          <input class="placeholderInput" type="text" placeholder="Ім’я" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
         </div>
         <span class="error">Поле “Ім’я” обов’язкове для заповнення</span>
         <div class="modalWindowContainerSection contents1EmailFlex">
           <span class="placeholderText">По батькові</span>
-          <input class="placeholderInput" type="text" placeholder="По батькові" oninput="updateLabelClass()" onblur="updateLabelClass()">
+          <input class="placeholderInput" type="text" placeholder="По батькові" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
         </div>
         <span class="error">Поле “По батькові” обов’язкове для заповнення</span>
         <div class="modalWindowContainerSection contents1EmailFlex">
           <span class="placeholderText">Телефон</span>
-          <input class="placeholderInput" type="tel" name="phone" placeholder="(+380)_ _  _ _ _  _ _  _ _" oninput="updateLabelClass()" onblur="updateLabelClass()">
+          <input class="placeholderInput" type="tel" name="phone" placeholder="(+380)_ _  _ _ _  _ _  _ _" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
         </div>
         <span class="error">Поле “Телефон” обов’язкове для заповнення</span>
         <input type="submit" value="Увійти" class="submitForm">
@@ -1019,7 +1054,7 @@
       <form>
         <div class="modalWindowContainerSection contents1EmailFlex">
           <span class="placeholderText">Телефон</span>
-          <input class="placeholderInput" name="phone" type="tel" placeholder="(+380)_ _  _ _ _  _ _  _ _" oninput="updateLabelClass()" onblur="updateLabelClass()">
+          <input class="placeholderInput" name="phone" type="tel" placeholder="(+380)_ _  _ _ _  _ _  _ _" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
         </div>
         <span class="error">Поле “Телефон” обов’язкове для заповнення</span>
         <div class="smoolInputFlex">
@@ -1290,7 +1325,7 @@
 
   <!-- Скрипт который убирает placеholder и добавляет свой текст -->
   <script>
-    function updateLabelClass(input) {
+   function updateLabelClass(input) {
     var span = input.previousElementSibling;
     
     if (input.value) {
@@ -1300,7 +1335,7 @@
         span.classList.remove('filled');
         span.classList.remove('active');
     }
-  }
+}
 
   var inputs = document.querySelectorAll('.placeholderInput');
   inputs.forEach(function(input) {
