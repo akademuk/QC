@@ -263,11 +263,13 @@
     </div>
   </div>
 
+  <!-- попап для открытия персональный данные -->
   <div id="popup" style="display:none;">
     <button id="btn-close-popup">&times;</button>
     <p>Згоду на передачу, зберігання, використання та поширення інформації щодо себе можна переглянути за <a href="#" target="_blank">посиланням.</a> </p>
   </div>
 
+  <!-- попап для открытия Графік оплат -->
   <div id="myModalCredit" class="myModalCredit">
     <div class="myModalCredit-content">
       <span class="myModalCreditClose">&times;</span>
@@ -996,8 +998,8 @@
           </button>
         </div>
         <div class="radioCredit radioCredit2">
-          <label for="photo" class="photo-label">
-            <input type="file" id="photo" name="photo">
+          <label for="photo2" class="photo-label">
+            <input type="file" id="photo2" name="photo">
             Сплатити іншою картою
           </label>
         </div>
@@ -1060,7 +1062,7 @@
         <div class="credit_onlineContainerLeft" id="fields">
             <h2>Сформуйте заявку <br>
               для отримання коштів</h2>
-            <form class="rangeForm" id="ajax-contact-form">
+            <form class="rangeForm">
                 <div class="sliderMoney">
                     <div class="sliderContainerText">
                         <div class="maxLenghtContent">
@@ -1112,16 +1114,16 @@
             <form>
               <p>Картка для зарахування</p>
               <div class="radioCredit radioCredit2">
-                <input type="radio" name="credit" id="creditS1" checked />
-                <label for="creditS1"></label>
+                <input type="radio" name="credit" id="creditS2" checked />
+                <label for="creditS2"></label>
                 <img src="img/card.png" alt="">
                 <button>
                   <img src="img/to.svg" alt="">
                 </button>
               </div>
               <div class="radioCredit radioCredit2">
-                <label for="photo" class="photo-label">
-                  <input type="file" id="photo" name="photo">
+                <label for="photo3" class="photo-label">
+                  <input type="file" id="photo3" name="photo">
                   <span class="error">Поле “Photo” обов’язкове для заповнення</span>
                   Сплатити іншою картою
                 </label>
@@ -1144,7 +1146,7 @@
     <div class="contents1">
       <div class="credit_onlineContainer credit_onlineContainerFlex">
         <div class="credit_onlineContainerLeft" id="fields">
-          <form class="rangeForm" id="ajax-contact-form">
+          <form class="rangeForm">
             <div class="sliderMoney">
               <div class="sliderContainerText">
                 <div class="maxLenghtContent">
@@ -1212,69 +1214,92 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+
+  <!-- Функционал при нажатии на кнопку "Войти" -->
   <script src="script/registration.js"></script>
+
+  <!-- Табы -->
   <script src="script/access.js"></script>
+
+  <!-- Таймер -->
   <script src="script/timer.js"></script>
+
+  <!-- Відновити пароль по Email -->
   <script src="script/recoverEmailModal.js"></script>
+
+  <!-- Видеть/скрыть введенные данные -->
   <script src="script/eye.js"></script>
+
+  <!-- попап для открытия Графік оплат -->
   <script src="script/popap.js"></script>
+
+  <!-- Налаштування -->
   <script src="script/settings.js"></script>
+
+  <!-- Hooks -->
   <script src="script/cookie.js"></script>
+
+  <!-- Калькулятор -->
   <script src="script/range-slider.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const backBtns = document.querySelectorAll('.back-btn');
 
-  backBtns.forEach(backBtn => {
-    backBtn.addEventListener('click', () => {
-      console.log('Нажата кнопка "Назад"');
-      backBtn.parentNode.style.display = 'none';
-      document.getElementById('login').style.display = 'flex';
+
+  <!-- Скрипт для стрелок которые делают шаг назад. Когда забыли пороль можно увидеть-->
+  <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const backBtns = document.querySelectorAll('.back-btn');
+
+      backBtns.forEach(backBtn => {
+        backBtn.addEventListener('click', () => {
+          backBtn.parentNode.style.display = 'none';
+          document.getElementById('login').style.display = 'flex';
+        });
+      });
     });
+  </script>
+
+  <!-- Маска для номера телефона -->
+  <script>
+  $(function(){
+    $('[name="phone"]').mask("+3(80)99 999 99 99");
   });
-});
-</script>
+  </script>
 
-<script>
- $(function(){
-  $('[name="phone"]').mask("+3(80)99 999 99 99");
-});
-</script>
+  <!-- Виконайте ідентифікацію з використанням Системи BankID НБУ, скрипт для кнопки загрузить -->
+  <script>
+    const toggleButton = document.getElementById("toggle-button");
+    const toggleDiv = document.getElementById("toggle-div");
 
-<script>
-  const button = document.getElementById("toggle-button");
-  const div = document.getElementById("toggle-div");
+    toggleButton.addEventListener("click", function() {
+      if (toggleDiv.style.display === "none") {
+        toggleDiv.style.display = "block";
+      } else {
+        toggleDiv.style.display = "none";
+      }
+    });
+  </script>
 
-  button.addEventListener("click", function() {
-    if (div.style.display === "none") {
-      div.style.display = "block";
+  <!-- При нажатии в header кнопки Вход, выподает меню пользователя -->
+  <script>
+    const buttonS = document.querySelector(".headerExit");
+    const menu = document.querySelector(".cabinet");
+
+    buttonS.addEventListener("click", function() {
+      menu.classList.toggle("open");
+    });
+  </script>
+
+  <!-- Скрипт который убирает placеholder и добавляет свой текст -->
+  <script>
+    function updateLabelClass(input) {
+    var span = input.previousElementSibling;
+    
+    if (input.value) {
+        span.classList.add('filled');
+        span.classList.add('active');
     } else {
-      div.style.display = "none";
+        span.classList.remove('filled');
+        span.classList.remove('active');
     }
-  });
-
- </script>
- 
- <script>
-  const buttonS = document.querySelector(".headerExit");
-  const menu = document.querySelector(".cabinet");
-
-  buttonS.addEventListener("click", function() {
-    menu.classList.toggle("open");
-  });
- </script>
-
-<script>
-  function updateLabelClass(input) {
-  var span = input.previousElementSibling;
-  
-  if (input.value) {
-      span.classList.add('filled');
-      span.classList.add('active');
-  } else {
-      span.classList.remove('filled');
-      span.classList.remove('active');
-  }
   }
 
   var inputs = document.querySelectorAll('.placeholderInput');
@@ -1286,7 +1311,7 @@
       updateLabelClass(input);
   });
   });
-   </script>
+  </script>
 
 </body>
 </html>
