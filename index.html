@@ -565,8 +565,8 @@
       <div class="contents1Email contents1EmailFlex2">
           <form action="">
             <div class="modalWindowContainerSection contents1EmailFlex">
-              <span>Пошта (Email)</span>
-              <input type="email">
+              <span class="placeholderText">Пошта (Email)</span>
+              <input class="placeholderInput" type="email" placeholder="Email" oninput="updateLabelClass()" onblur="updateLabelClass()">
               <img src="img/like.svg" alt="like" class="like">
             </div>
             <span class="error">Поле “Пошта (Email)” обов’язкове для заповнення</span>
@@ -620,7 +620,10 @@
         <p>На номер 380674042507 відправлено sms з кодом підтвердження.</p>
       </div>
       <form>
-        <input type="text" placeholder="Код з SMS">
+        <div class="modalWindowContainerSection contents1EmailFlex">
+          <span class="placeholderText">Код з SMS</span>
+          <input class="placeholderInput" type="text" placeholder="Код з SMS" oninput="updateLabelClass()" onblur="updateLabelClass()">
+        </div>
         <span class="error">Поле “Код з SMS” обов’язкове для заповнення</span>
         <input type="submit" value="Увійти" class="submitForm">
       </form>
@@ -670,13 +673,25 @@
           <option value="">Тип відносин</option>
           <option value="">Тип відносин</option>
         </select>
-        <input type="text" placeholder="Прізвище">
+        <div class="modalWindowContainerSection contents1EmailFlex">
+          <span class="placeholderText">Прізвище</span>
+          <input class="placeholderInput" type="text" placeholder="Прізвище" oninput="updateLabelClass()" onblur="updateLabelClass()">
+        </div>
         <span class="error">Поле “Прізвище” обов’язкове для заповнення</span>
-        <input type="text" placeholder="Ім’я">
+        <div class="modalWindowContainerSection contents1EmailFlex">
+          <span class="placeholderText">Ім’я</span>
+          <input class="placeholderInput" type="text" placeholder="Ім’я" oninput="updateLabelClass()" onblur="updateLabelClass()">
+        </div>
         <span class="error">Поле “Ім’я” обов’язкове для заповнення</span>
-        <input type="text" placeholder="По батькові">
+        <div class="modalWindowContainerSection contents1EmailFlex">
+          <span class="placeholderText">По батькові</span>
+          <input class="placeholderInput" type="text" placeholder="По батькові" oninput="updateLabelClass()" onblur="updateLabelClass()">
+        </div>
         <span class="error">Поле “По батькові” обов’язкове для заповнення</span>
-        <input type="tel" placeholder="(+380)_ _  _ _ _  _ _  _ _">
+        <div class="modalWindowContainerSection contents1EmailFlex">
+          <span class="placeholderText">Телефон</span>
+          <input class="placeholderInput" type="tel" name="phone" placeholder="(+380)_ _  _ _ _  _ _  _ _" oninput="updateLabelClass()" onblur="updateLabelClass()">
+        </div>
         <span class="error">Поле “Телефон” обов’язкове для заповнення</span>
         <input type="submit" value="Увійти" class="submitForm">
       </form>
@@ -1000,7 +1015,10 @@
       <h2>Сплатити за номером телефону</h2>
       <p class="blueText" style="margin-bottom: 14px;">Ви можете сплатити займ, маючи тільки номер телефону, на який була оформлена реєстрація.</p>
       <form>
-        <input type="tel" name="phone" placeholder="(+380)_ _  _ _ _  _ _  _ _" required>
+        <div class="modalWindowContainerSection contents1EmailFlex">
+          <span class="placeholderText">Телефон</span>
+          <input class="placeholderInput" name="phone" type="tel" placeholder="(+380)_ _  _ _ _  _ _  _ _" oninput="updateLabelClass()" onblur="updateLabelClass()">
+        </div>
         <span class="error">Поле “Телефон” обов’язкове для заповнення</span>
         <div class="smoolInputFlex">
           <p>Сумма сплати</p>
@@ -1245,6 +1263,30 @@
     menu.classList.toggle("open");
   });
  </script>
+
+<script>
+  function updateLabelClass(input) {
+  var span = input.previousElementSibling;
+  
+  if (input.value) {
+      span.classList.add('filled');
+      span.classList.add('active');
+  } else {
+      span.classList.remove('filled');
+      span.classList.remove('active');
+  }
+  }
+
+  var inputs = document.querySelectorAll('.placeholderInput');
+  inputs.forEach(function(input) {
+  input.addEventListener('input', function() {
+      updateLabelClass(input);
+  });
+  input.addEventListener('blur', function() {
+      updateLabelClass(input);
+  });
+  });
+   </script>
 
 </body>
 </html>

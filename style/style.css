@@ -1540,15 +1540,24 @@ form input::placeholder {
   width: 100%;
   position: relative;
 }
-.modalWindowContainerSection > span {
+.modalWindowContainerSection > .placeholderText {
   position: absolute;
-  top: 10px;
+  top: 3px;
   left: 20px;
   font-family: 'Gilroy-Regular';
   font-size: 12px;
   line-height: 120%;
   color: #797979;
+  opacity: 0;
 }
+.placeholderText.active {
+  opacity: 1;
+}
+.placeholderText.active,
+.placeholderText.filled {
+  opacity: 1;
+}
+
 .modalWindowContainerSection button {
   position: absolute;
   top: 15px;
@@ -1585,7 +1594,7 @@ form input::placeholder {
   color: #FF0000;
 }
 .modalWindowContainerSection input {
-  padding: 23px 20px 10px 20px!important;
+  padding: 13px 20px 10px 20px!important;
 }
 .infoCalendar {
   right: 50px !important;
