@@ -1224,6 +1224,7 @@
 
   <!-- Мої банківські карти -->
   <div class="contents1">
+    <h2>Мої банківські карти</h2>
     <div id="card-container">
       <div class="card">
         <p>
@@ -1234,7 +1235,7 @@
       </div>
     </div>
   
-    <div>
+    <div class="add-cardFlex">
       <button id="add-card">
         <img src="img/plus.svg" alt="">
         Додати банківську картку
@@ -1277,7 +1278,7 @@
 
   <script>
     const cardContainer = document.getElementById('card-container');
-  const addCardButton = document.getElementById('add-card');
+    const addCardButton = document.getElementById('add-card');
 
   addCardButton.addEventListener('click', () => {
     const newCard = document.createElement('div');
@@ -1296,13 +1297,14 @@
       });
     });
   });
-
-  $('.menuOn').on('click', function() {
-    $('.delete-card').addClass('open');
-});
-
   </script>
 
+  <script>
+        $('.menuOn').on('click', function() {
+      $('.delete-card').addClass('open');
+  });
+
+  </script>
 
 
   <!-- Скрипт для стрелок которые делают шаг назад. Когда забыли пороль можно увидеть-->
@@ -1342,12 +1344,19 @@
 
   <!-- При нажатии в header кнопки Вход, выподает меню пользователя -->
   <script>
-    const buttonS = document.querySelector(".headerExit");
-    const menu = document.querySelector(".cabinet");
+      const buttonS = document.querySelector(".headerExit");
+      const menu = document.querySelector(".cabinet");
+      let openPopap = document.querySelector(".cabinet.open");
 
-    buttonS.addEventListener("click", function() {
-      menu.classList.toggle("open");
-    });
+      buttonS.addEventListener("click", function() {
+        menu.classList.toggle("open");
+      });
+      document.addEventListener("click", function(e) {
+        if (openPopap && e.target !== openPopap && !openPopap.contains(e.target)) {
+          document.querySelector('.cabinet').classList.remove("open");
+        }
+      });
+   
   </script>
 
   <!-- Скрипт который убирает placеholder и добавляет свой текст -->

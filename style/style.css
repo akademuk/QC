@@ -2208,7 +2208,10 @@ header .wrapper {
   border: 1px solid #5F7EE1;
   border-radius: 10px;
   height: 54px;
-  margin-bottom: 14px;
+  margin-bottom: 0px;
+  margin-top: 14px;
+  box-sizing: border-box;
+  position: relative;
 }
 #add-card {
   display: flex;
@@ -2218,6 +2221,11 @@ header .wrapper {
   line-height: 120%;
   color: #797979;
   width: 100%;
+  justify-content: flex-start;
+  padding-left: 22px;
+  background: #FFFFFF;
+  border: 1px solid #5F7EE1;
+border-radius: 10px;
 }
 #add-card  img{
   margin-right: 10px;
@@ -2229,8 +2237,8 @@ header .wrapper {
 
 .delete-card {
   position: absolute;
-  top: 25px;
-  right: 21px;
+     top: -15px;
+    right: 0px;
   background: #fff !important;
   box-shadow: 4px 7px 20px rgba(171, 171, 171, 0.25);
   border-radius: 10px;
@@ -2257,6 +2265,12 @@ header .wrapper {
 input:focus {
   outline: none !important;
   border:1px solid #53AC33 !important;
+}
+.add-cardFlex {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-start;
 }
 
 
