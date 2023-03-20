@@ -11,30 +11,7 @@
 <body>
   <header>
     <div class="wrapper">
-         <div class="logo">
-             <a href="index.html">
-                 <img src="img/logo.png" alt="Qcredit">
-             </a>
-         </div>
-         <ul class="headerNavigation">
-             <li>
-                 <a href="index.html" class="bold">Головна</a>
-             </li>
-             <li>
-                 <a href="promotions.html">Акції</a>
-             </li>
-             <li>
-                 <a href="product.html">Наші продукти</a>
-             </li>
-             <li>
-                 <a href="payOff.html">Як погасити</a>
-             </li>
-             <li>
-                 <a href="help.html">Україна Help</a>
-             </li>
-         </ul>
          <div class="headerBtn">
-             <button class="headerPay">Сплатити</button>
              <button class="headerExit">Вхід</button>
               <!-- Кабинет -->
               <div class="cabinet">
@@ -96,7 +73,7 @@
           <h2>Вход в личный кабинет</h2>
             <div class="modalWindowContainerSection">
               <span class="placeholderText">Телефон</span>
-              <input type="tel" name="phone" class="placeholderInput" placeholder="(+380)_ _  _ _ _  _ _  _ _" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
+              <input type="tel" name="phone" class="placeholderInput" placeholder="+38(0_ _) _ _ _  _ _  _ _" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
             </div>
             <span class="error">Поле “Номер телефону” обов’язкове для заповнення</span>
             <div class="modalWindowContainerSection">
@@ -146,7 +123,7 @@
             <form>
               <div class="modalWindowContainerSection">
                 <span class="placeholderText">Телефон</span>
-                <input type="tel" name="phone" class="placeholderInput" placeholder="(+380)_ _  _ _ _  _ _  _ _" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
+                <input type="tel" name="phone" class="placeholderInput" placeholder="+38(0_ _) _ _ _  _ _  _ _" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
               </div>
               <span class="error">Поле “Номер телефону” обов’язкове для заповнення</span>
               <a href="#" id="openConfirmationPhone" class="submitForm">Відправити</a></p>
@@ -217,7 +194,7 @@
         <h2>Для отримання позики необхідно створити особистий кабінет</h2>
         <div class="modalWindowContainerSection">
           <span class="placeholderText">Телефон</span>
-          <input type="tel" name="phone" class="placeholderInput" placeholder="(+380)_ _  _ _ _  _ _  _ _" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
+          <input type="tel" name="phone" class="placeholderInput" placeholder="+38(0_ _) _ _ _  _ _  _ _" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
         </div>
             <span class="error">Поле “Номер телефону” обов’язкове для заповнення</span>
             <div class="chexbox">
@@ -727,7 +704,7 @@
         <span class="error">Поле “По батькові” обов’язкове для заповнення</span>
         <div class="modalWindowContainerSection contents1EmailFlex">
           <span class="placeholderText">Телефон</span>
-          <input class="placeholderInput" type="tel" name="phone" placeholder="(+380)_ _  _ _ _  _ _  _ _" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
+          <input class="placeholderInput" type="tel" name="phone" placeholder="+38(0_ _) _ _ _  _ _  _ _" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
         </div>
         <span class="error">Поле “Телефон” обов’язкове для заповнення</span>
         <input type="submit" value="Увійти" class="submitForm">
@@ -1054,7 +1031,7 @@
       <form>
         <div class="modalWindowContainerSection contents1EmailFlex">
           <span class="placeholderText">Телефон</span>
-          <input class="placeholderInput" name="phone" type="tel" placeholder="(+380)_ _  _ _ _  _ _  _ _" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
+          <input class="placeholderInput" name="phone" type="tel" placeholder="+38(0_ _) _ _ _  _ _  _ _" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
         </div>
         <span class="error">Поле “Телефон” обов’язкове для заповнення</span>
         <div class="smoolInputFlex">
@@ -1159,10 +1136,10 @@
               <div class="radioCredit radioCredit2">
                 <label for="photo3" class="photo-label">
                   <input type="file" id="photo3" name="photo">
-                  <span class="error">Поле “Photo” обов’язкове для заповнення</span>
                   Сплатити іншою картою
                 </label>
               </div>
+              <span class="error">Поле “Photo” обов’язкове для заповнення</span>
               <div class="modalWindowContainerSection">
                 <span>Ціль кредиту</span>
                 <select>
@@ -1245,6 +1222,27 @@
   </div>
 
 
+  <!-- Мої банківські карти -->
+  <div class="contents1">
+    <div id="card-container">
+      <div class="card">
+        <p>
+          <img src="img/card2.png" alt="">
+        </p>
+        <img src="img/menu.svg" alt="menu" class="menuOn">
+        <button class="delete-card">Видалити</button>
+      </div>
+    </div>
+  
+    <div>
+      <button id="add-card">
+        <img src="img/plus.svg" alt="">
+        Додати банківську картку
+      </button>
+    </div>
+  </div>
+  
+
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
@@ -1277,6 +1275,35 @@
   <!-- Калькулятор -->
   <script src="script/range-slider.js"></script>
 
+  <script>
+    const cardContainer = document.getElementById('card-container');
+  const addCardButton = document.getElementById('add-card');
+
+  addCardButton.addEventListener('click', () => {
+    const newCard = document.createElement('div');
+    newCard.classList.add('card');
+    newCard.innerHTML = `
+      <p><img src="img/card2.png" alt=""></p>
+      <img src="img/menu.svg" alt="menu" class="menuOn">
+      <button class="delete-card">Видалити</button>
+    `;
+    cardContainer.appendChild(newCard);
+
+    const deleteButtons = document.querySelectorAll('.delete-card');
+    deleteButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        button.parentNode.remove();
+      });
+    });
+  });
+
+  $('.menuOn').on('click', function() {
+    $('.delete-card').addClass('open');
+});
+
+  </script>
+
+
 
   <!-- Скрипт для стрелок которые делают шаг назад. Когда забыли пороль можно увидеть-->
   <script>
@@ -1295,7 +1322,7 @@
   <!-- Маска для номера телефона -->
   <script>
   $(function(){
-    $('[name="phone"]').mask("+3(80)99 999 99 99");
+    $('[name="phone"]').mask("+38(099) 999 99 99");
   });
   </script>
 

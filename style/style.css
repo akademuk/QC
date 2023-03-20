@@ -2183,10 +2183,81 @@ input[type="tel"]:valid {
 .cabinet {
   position: absolute;
 }
+.placeholderTextPos {
+  opacity: 1 !important;
+}
+.contents1Hidden {
+  border-radius: 0 !important;
+}
+.myModalCredit-content {
+  border-radius: 30px;
+}
+header .wrapper {
+  justify-content: flex-end;
+  padding-right: 16px;
+  box-sizing: border-box;
+}
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f1f1f1;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: rgba(95, 126, 225, 0.05);
+  border: 1px solid #5F7EE1;
+  border-radius: 10px;
+  height: 54px;
+  margin-bottom: 14px;
+}
+#add-card {
+  display: flex;
+  align-items: center;
+  height: 54px;
+  font-size: 16px;
+  line-height: 120%;
+  color: #797979;
+  width: 100%;
+}
+#add-card  img{
+  margin-right: 10px;
+}
 
+#card-container {
+  width: 100%;
+}
 
+.delete-card {
+  position: absolute;
+  top: 25px;
+  right: 21px;
+  background: #fff !important;
+  box-shadow: 4px 7px 20px rgba(171, 171, 171, 0.25);
+  border-radius: 10px;
+  font-weight: 400;
+  font-size: 14px !important;
+  line-height: 120% !important;
+  color: #141414 !important;
+  padding: 10px 20px !important;
+  width: max-content !important;
+  box-sizing: border-box;
+  height: 37px !important;
+  display: none !important; 
+}
 
+.delete-card.open {
+  display: block !important;
+}
 
+.menuOn {
+  width: 30px;
+  object-fit: contain;
+  height: 20px;
+}
+input:focus {
+  outline: none !important;
+  border:1px solid #53AC33 !important;
+}
 
 
 
@@ -2266,10 +2337,11 @@ input[type="tel"]:valid {
 
 
 
-
-
-
-
+@media (max-width: 1200px) {
+  .headerNavigation {
+    display: none;
+  }
+}
 
 
 
@@ -2437,3 +2509,4 @@ input[type="tel"]:valid {
     top: 230px;
   }
 }
+
