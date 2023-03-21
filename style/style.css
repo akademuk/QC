@@ -2234,7 +2234,48 @@ border-radius: 10px;
 #card-container {
   width: 100%;
 }
+#add-card2{
+  display: flex;
+  align-items: center;
+  height: 54px;
+  font-size: 16px;
+  line-height: 120%;
+  color: #797979;
+  width: 100%;
+  justify-content: flex-start;
+  padding-left: 22px;
+  background: #FFFFFF;
+  border: 1px solid #5F7EE1;
+border-radius: 10px;
+}
+#add-card2  img{
+  margin-right: 10px;
+}
 
+#card-container2 {
+  width: 100%;
+}
+#add-card3 {
+  display: flex;
+  align-items: center;
+  height: 54px;
+  font-size: 16px;
+  line-height: 120%;
+  color: #797979;
+  width: 100%;
+  justify-content: flex-start;
+  padding-left: 22px;
+  background: #FFFFFF;
+  border: 1px solid #5F7EE1;
+border-radius: 10px;
+}
+#add-card3  img{
+  margin-right: 10px;
+}
+
+#card-container3 {
+  width: 100%;
+}
 .delete-card {
   position: absolute;
      top: -15px;
