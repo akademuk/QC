@@ -999,24 +999,25 @@
             <input type="text" placeholder="0">
           </div>  
       </form>
-      <form>
-        <p>Картка для списання</p>
-        <div class="radioCredit radioCredit2">
-          <input type="radio" name="credit" id="creditS1" checked />
-          <label for="creditS1"></label>
-          <img src="img/card.png" alt="">
-          <button>
-            <img src="img/to.svg" alt="">
+      <div class="widthCard">
+        <p class="textCards">Картка для списання</p>
+        <div id="card-container">
+          <div class="card">
+            <p>
+              <img src="img/card2.png" alt="">
+            </p>
+            <img src="img/menu.svg" alt="menu" class="menuOn">
+            <button class="delete-card">Видалити</button>
+          </div>
+        </div>
+        <div class="add-cardFlex">
+          <button id="add-card">
+            <img src="img/plus.svg" alt="">
+            Додати банківську картку
           </button>
         </div>
-        <div class="radioCredit radioCredit2">
-          <label for="photo2" class="photo-label">
-            <input type="file" id="photo2" name="photo">
-            Сплатити іншою картою
-          </label>
-        </div>
-        <input type="submit" value="Сплатити" class="submitForm">
-      </form>
+        <a href="#"class="submitForm marg">Сплатити</a>
+      </div>
 
       <button style="margin-top: 0;">
         <img src="img/arrowsPrev.svg" alt="arrowsPrev">
@@ -1123,33 +1124,36 @@
                     </div>
                 </div>
             </form>
-            <form>
-              <p>Картка для зарахування</p>
-              <div class="radioCredit radioCredit2">
-                <input type="radio" name="credit" id="creditS2" checked />
-                <label for="creditS2"></label>
-                <img src="img/card.png" alt="">
-                <button>
-                  <img src="img/to.svg" alt="">
+            <div>
+              <p class="textCards">Картка для зарахування</p>
+              <div id="card-container">
+                <div class="card">
+                  <p>
+                    <img src="img/card2.png" alt="">
+                  </p>
+                  <img src="img/menu.svg" alt="menu" class="menuOn">
+                  <button class="delete-card">Видалити</button>
+                </div>
+              </div>
+              <div class="add-cardFlex">
+                <button id="add-card">
+                  <img src="img/plus.svg" alt="">
+                  Додати банківську картку
                 </button>
               </div>
-              <div class="radioCredit radioCredit2">
-                <label for="photo3" class="photo-label">
-                  <input type="file" id="photo3" name="photo">
-                  Сплатити іншою картою
-                </label>
-              </div>
               <span class="error">Поле “Photo” обов’язкове для заповнення</span>
-              <div class="modalWindowContainerSection">
-                <span>Ціль кредиту</span>
-                <select>
-                    <option value="">Інше</option>
-                    <option value="">Інше</option>
-                    <option value="">Інше</option>
-                </select>
+              <form>
+                <div class="modalWindowContainerSection">
+                  <span class="placeholderText placeholderTextPos">Ціль кредиту</span>
+                  <select class="placeholderInput">
+                      <option value="">Інше</option>
+                      <option value="">Інше</option>
+                      <option value="">Інше</option>
+                  </select>
+                </div>
+                <input type="submit" value="Отримати гроші" class="submitForm" style="margin-bottom: 0;">
+              </form>
             </div>
-            <input type="submit" value="Отримати гроші" class="submitForm" style="margin-bottom: 0;">
-            </form>
         </div>
       </div>
     </div>
@@ -1223,7 +1227,7 @@
 
 
   <!-- Мої банківські карти -->
-  <div class="contents1">
+  <div class="contents1 cardsFlex">
     <h2>Мої банківські карти</h2>
     <div id="card-container">
       <div class="card">
@@ -1276,9 +1280,10 @@
   <!-- Калькулятор -->
   <script src="script/range-slider.js"></script>
 
+  <!-- Мої банківські карти -->
   <script>
-    const cardContainer = document.getElementById('card-container');
-    const addCardButton = document.getElementById('add-card');
+  const cardContainer = document.getElementById('card-container');
+  const addCardButton = document.getElementById('add-card');
 
   addCardButton.addEventListener('click', () => {
     const newCard = document.createElement('div');
@@ -1296,14 +1301,26 @@
         button.parentNode.remove();
       });
     });
-  });
-  </script>
 
-  <script>
-        $('.menuOn').on('click', function() {
-      $('.delete-card').addClass('open');
+    const menuButtons = document.querySelectorAll('.menuOn');
+    menuButtons.forEach(menuButton => {
+      menuButton.addEventListener('click', () => {
+        menuButton.nextElementSibling.classList.add('open');
+      });
+    });
   });
 
+  document.addEventListener('click', (event) => {
+    const isMenuButton = event.target.classList.contains('menuOn');
+    const isDeleteButton = event.target.classList.contains('delete-card');
+    const isOpen = document.querySelector('.open');
+
+    if (!isMenuButton && !isDeleteButton && isOpen) {
+      document.querySelectorAll('.delete-card').forEach((button) => {
+        button.classList.remove('open');
+      });
+    }
+  });
   </script>
 
 
@@ -1344,18 +1361,19 @@
 
   <!-- При нажатии в header кнопки Вход, выподает меню пользователя -->
   <script>
-      const buttonS = document.querySelector(".headerExit");
-      const menu = document.querySelector(".cabinet");
-      let openPopap = document.querySelector(".cabinet.open");
+    const buttonS = document.querySelector(".headerExit");
+    const menu = document.querySelector(".cabinet");
 
-      buttonS.addEventListener("click", function() {
-        menu.classList.toggle("open");
-      });
-      document.addEventListener("click", function(e) {
-        if (openPopap && e.target !== openPopap && !openPopap.contains(e.target)) {
-          document.querySelector('.cabinet').classList.remove("open");
-        }
-      });
+    buttonS.addEventListener("click", function() {
+      menu.classList.toggle("open");
+    });
+
+    document.addEventListener("click", function(e) {
+      if (menu.classList.contains("open") && e.target !== buttonS && !menu.contains(e.target)) {
+        menu.classList.remove("open");
+      }
+    });
+
    
   </script>
 

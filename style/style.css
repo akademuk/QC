@@ -2272,13 +2272,25 @@ input:focus {
   width: 100%;
   justify-content: flex-start;
 }
-
-
-
-
-
-
-
+.cardsFlex {
+  margin-bottom: 16px !important;
+}
+.textCards {
+  margin-top: 30px;
+  font-size: 22px;
+  line-height: 26px;
+  color: #353535;
+  margin-bottom: -4px;
+}
+.add-cardFlex {
+  margin-bottom: 5px;
+}
+.widthCard {
+  width: 100%;
+}
+.marg {
+  margin-top: 20px;
+}
 
 
 
