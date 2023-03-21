@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="style/reset.css">
     <link rel="stylesheet" href="style/style.css">
     <title>2.PesonalInfo</title>
@@ -38,11 +39,8 @@
                 </div>
                 <span class="error">Поле “По батькові” обов’язкове для заповнення</span>
                 <div class="modalWindowContainerSection">
-                    <span class="placeholderText">Дата народження</span>
-                    <input type="text" class="placeholderInput" placeholder="Дата народження" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
-                    <button>
-                        <img src="img/calendar.svg" alt="calendar">
-                    </button>
+                    <span class="placeholderText placeholderTextPos">Дата народження</span>
+                    <input type="date" data-date="" data-date-format="dd.mm.yyyy" value="2019-01-17" max="9999-12-31" class="placeholderInput customDateInput">
                 </div>
                 <span class="error">Поле “Дата народження” обов’язкове для заповнення</span>
                 <div class="modalWindowContainerSection">
@@ -93,13 +91,10 @@
                     </div>
                     <span class="error">Поле “Ким видано” обов’язкове для заповнення</span>
                     <div class="modalWindowContainerSection">
-                        <span class="placeholderText">Дата видачі</span>
-                        <input type="text" class="placeholderInput" placeholder="Дата видачі" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
+                        <span class="placeholderText placeholderTextPos">Дата видачі</span>
+                        <input type="date" data-date="" data-date-format="dd.mm.yyyy" value="2019-01-17" max="9999-12-31" class="placeholderInput customDateInput">
                         <button class="infoCalendar">
                             <img src="img/info.svg" alt="info">
-                        </button>
-                        <button>
-                            <img src="img/calendar.svg" alt="calendar">
                         </button>
                     </div>
                     <span class="error">Поле “Дата видачі” обов’язкове для заповнення</span>
@@ -133,13 +128,11 @@
                     </div>
                     <span class="error">Поле “Ким видано” обов’язкове для заповнення</span>
                     <div class="modalWindowContainerSection">
-                        <span class="placeholderText">Дата видачі</span>
-                        <input type="text" class="placeholderInput" placeholder="Дата видачі" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
+                        <span class="placeholderText placeholderTextPos">Дата видачі</span>
+                        <input type="date" data-date="" data-date-format="dd.mm.yyyy" value="2019-01-17" max="9999-12-31" class="placeholderInput customDateInput">
+
                         <button class="infoCalendar">
                             <img src="img/info.svg" alt="info">
-                        </button>
-                        <button>
-                            <img src="img/calendar.svg" alt="calendar">
                         </button>
                     </div>
                     <span class="error">Поле “Дата видачі” обов’язкове для заповнення</span>
@@ -299,30 +292,61 @@
     </div>
   </div>
 
-  <script src="script/modalRegistration.js"></script>
-  <script src="script/access.js"></script>
-  <script>
-    function updateLabelClass(input) {
-    var span = input.previousElementSibling;
-    
-    if (input.value) {
-        span.classList.add('filled');
-        span.classList.add('active');
-    } else {
-        span.classList.remove('filled');
-        span.classList.remove('active');
-    }
-    }
 
-    var inputs = document.querySelectorAll('.placeholderInput');
-    inputs.forEach(function(input) {
-    input.addEventListener('input', function() {
-        updateLabelClass(input);
-    });
-    input.addEventListener('blur', function() {
-        updateLabelClass(input);
-    });
-    });
-     </script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="script/modalRegistration.js"></script>
+    <script src="script/access.js"></script>
+    <script>
+        function updateLabelClass(input) {
+        var span = input.previousElementSibling;
+        
+        if (input.value) {
+            span.classList.add('filled');
+            span.classList.add('active');
+        } else {
+            span.classList.remove('filled');
+            span.classList.remove('active');
+        }
+        }
+
+        var inputs = document.querySelectorAll('.placeholderInput');
+        inputs.forEach(function(input) {
+        input.addEventListener('input', function() {
+            updateLabelClass(input);
+        });
+        input.addEventListener('blur', function() {
+            updateLabelClass(input);
+        });
+        });
+    </script>
+
+    <script>
+      const customInput = document.querySelector('.customDateInput');
+        const defaultInput = customInput.querySelector('input[type="date"]');
+
+        customInput.addEventListener('click', () => {
+        defaultInput.click();
+        });
+
+        // Listen for changes to the date input field
+        defaultInput.addEventListener('input', () => {
+        // Get the selected date in the format "yyyy-MM-dd"
+        const selectedDate = defaultInput.value;
+        
+        // Convert the date to the desired format "dd.MMMM.yyyy"
+        const formattedDate = new Date(selectedDate).toLocaleDateString('en-US', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+        }).replace(/(\d+) (\w+) (\d+)/, '$1.$2.$3');
+
+        // Set the formatted date as the value of the custom input field
+        customInput.value = formattedDate;
+        });
+
+    </script>
 </body>
 </html>

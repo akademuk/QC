@@ -24,7 +24,7 @@ modal.style.display = "flex";
 }
 
 // При нажатии на крестик закрываем модальное окно
-var closeBtn = document.getElementsByClassName("close")[0];
+var closeBtn = document.getElementsByClassName("closemodal")[0];
 closeBtn.onclick = function() {
 modal.style.display = "none";
 login.style.display = "flex";

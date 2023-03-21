@@ -262,7 +262,7 @@ header .wrapper {
   position: relative;
 }
 
-.close {
+.menu.open_menu > .close {
   color: #1E1D28;
   float: right;
   font-size: 28px;
@@ -270,6 +270,21 @@ header .wrapper {
   position: absolute;
   top: 10px;
   right: 20px;
+}
+
+.modal-content .closemodal {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 40px;
+  cursor: pointer;
+}
+.modal-content .close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 40px;
+  cursor: pointer;
 }
 
 .close:hover,
@@ -291,6 +306,27 @@ header .wrapper {
   color: #111B25;
   margin-bottom: 20px;
 }
+.customDateInput::-webkit-calendar-picker-indicator {
+  position: absolute;
+  right: 20px;
+  z-index: 2;
+  opacity: 0;
+}
+
+.customDateInput::before {
+  content: url('../img/calendar.svg');
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 15px;
+  z-index: 1;
+}
+
+
 form input {
   box-sizing: border-box;
   display: flex;
@@ -1561,7 +1597,7 @@ form input::placeholder {
 .modalWindowContainerSection button {
   position: absolute;
   top: 15px;
-  right: 20px;
+  right: 10px;
   background: transparent;
   border: none;
 }
@@ -2091,12 +2127,7 @@ input[type="range"]:active::-webkit-slider-thumb{
   position: relative;
 }
 
-input[type="email"]:valid {
-  border: 1px solid #53AC33;
-}
-input[type="tel"]:valid {
-  border: 1px solid #53AC33;
-}
+
 .contents1EmailFlex {
   position: relative;
 }
@@ -2168,7 +2199,7 @@ input[type="tel"]:valid {
   transition: height 0.5s ease-out;
   padding: 0;
   right: 0;
-  top: 75px;
+  top: 80px;
   z-index: 102;
 }
 
@@ -2193,9 +2224,9 @@ input[type="tel"]:valid {
   border-radius: 30px;
 }
 header .wrapper {
-  justify-content: flex-end;
   padding-right: 16px;
   box-sizing: border-box;
+  position: relative;
 }
 .card {
   display: flex;
@@ -2332,6 +2363,72 @@ input:focus {
 .marg {
   margin-top: 20px;
 }
+/*Burger **********************************************/
+.menu {
+  width: 100%;
+  height: 100%;
+  right: -100%;
+  top: 0;
+  position: fixed;
+  background: #222332;
+  transition: 0.7s;
+  z-index: 11;
+  padding: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  z-index: 100;
+}
+.open_menu {
+  right: 0;
+}
+.menu .close {
+  width: 34px;
+  height: 22px;
+  margin-left: auto;
+}
+.openBurger {
+  display: none;
+}
+.headerNavigationBurger {
+  display: flex;
+  flex-direction: column;
+}
+.menuNavigation {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 50px;
+}
+.menuNavigation li {
+  margin-right: 0;
+  margin-bottom: 20px;
+}
+.menuNavigation li a {
+  color: #fff;
+  font-size: 35px;
+  line-height: 150%;
+}
+.menuBtn {
+  flex-direction: column;
+}
+.menuBtn button {
+  margin-left: 0;
+  margin-bottom: 30px;
+  width: 300px;
+  height: 75px;
+  font-size: 35px;
+  line-height: 150%;
+}
+.menuBtn .headerPay {
+  margin-top: 50px;
+}
+.promocod span:nth-of-type(2) {
+  display: none;
+}
 
 
 
@@ -2397,8 +2494,11 @@ input:focus {
 
 
 
-
-
+@media (max-width: 1280px) {
+  header .wrapper {
+    padding: 0 16px;
+  }
+}
 
 
 
@@ -2408,15 +2508,56 @@ input:focus {
   .headerNavigation {
     display: none;
   }
+  header .wrapper {
+    flex-direction: column;
+  }
+  header {
+      height: max-content;
+      padding: 16px 0;
+  }
+  .headerNavigation {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    min-width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 16px;
+}
 }
 
 
-
+@media (max-width: 992px) {
+  .headerNavigation li {
+    width: max-content;
+}
+}
 
 
 @media (max-width: 768px) {
   .cookie {
     padding: 20px;
+  }
+  .openBurger {
+    display: block;
+  }
+  header .wrapper > .headerBtn > .headerPay{
+      display: none;
+  }
+  header .wrapper > .headerBtn > .headerExit{
+    display: none;
+}
+  header .wrapper > .headerNavigation {
+    display: none;
+  }
+  header .wrapper {
+    flex-direction: row;
+  }
+  .menuNavigation {
+    flex-direction: column !important;
+    margin-top: 100px;
   }
 }
 

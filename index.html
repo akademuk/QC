@@ -9,11 +9,35 @@
     <title>Document</title>
 </head>
 <body>
-  <header>
-    <div class="wrapper">
-         <div class="headerBtn">
-             <button class="headerExit">Вхід</button>
-              <!-- Кабинет -->
+    <!--header-->
+      <header>
+        <div class="wrapper">
+          <div class="logo">
+              <a href="index.html">
+                  <img src="img/logo.png" alt="Qcredit">
+              </a>
+          </div>
+          <ul class="headerNavigation">
+              <li>
+                  <a href="index.html" class="bold">Головна</a>
+              </li>
+              <li>
+                  <a href="promotions.html">Акції</a>
+              </li>
+              <li>
+                  <a href="product.html">Наші продукти</a>
+              </li>
+              <li>
+                  <a href="payOff.html">Як погасити</a>
+              </li>
+              <li>
+                  <a href="help.html">Україна Help</a>
+              </li>
+          </ul>
+          <div class="headerBtn">
+              <button class="headerPay">Сплатити</button>
+              <button class="headerExit">Вхід</button>
+               <!-- Кабинет -->
               <div class="cabinet">
                 <p class="cabinetName">Петров Петро Петрович</p>
                 <ul class="cabinetNavigation">
@@ -48,10 +72,45 @@
                   </li>
                 </ul>
               </div>
-         </div>
+          </div>
+          <div class="openBurger">
+              <img src="img/burger.svg" alt="burger">
+          </div>
+        </div>
+      </header>
+
+    <div class="menu">
+        <div class="close">
+            <svg width="34" height="22" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z"
+                    fill="#ffffff" />
+            </svg>
+        </div>
+        <ul class="headerNavigation menuNavigation">
+            <li>
+                <a href="index.html" class="bold close">Головна</a>
+            </li>
+            <li>
+                <a href="promotions.html" class="close">Акції</a>
+            </li>
+            <li>
+                <a href="product.html" class="close">Наші продукти</a>
+            </li>
+            <li>
+                <a href="payOff.html" class="close">Як погасити</a>
+            </li>
+            <li>
+                <a href="help.html" class="close">Україна Help</a>
+            </li>
+        </ul>
+        <div class="headerBtn menuBtn">
+            <button class="headerPay">Сплатити</button>
+            <button class="headerExit">Вхід</button>
+        </div>
     </div>
- </header>
- <!--header-->
+    <!--menu-->
+
 
   <!-- Кнопка для открытия модального окна -->
   <button id="loginBtn">Войти</button>
@@ -65,7 +124,7 @@
   <!-- Модальное окно для входа -->
   <div id="loginModal" class="modal">
     <div class="modal-content">
-      <span class="close">&times;</span>
+      <span class="closemodal">&times;</span>
 
       <!-- Форма логина и пароля -->
       <div class="login-form">
@@ -1006,13 +1065,7 @@
       <div class="widthCard">
         <p class="textCards">Картка для списання</p>
         <div id="card-container3">
-          <div class="card">
-            <p>
-              <img src="img/card2.png" alt="">
-            </p>
-            <img src="img/menu.svg" alt="menu" class="menuOn">
-            <button class="delete-card">Видалити</button>
-          </div>
+         
         </div>
         <div class="add-cardFlex">
           <button id="add-card3">
@@ -1131,13 +1184,7 @@
             <div>
               <p class="textCards">Картка для зарахування</p>
               <div id="card-container2">
-                <div class="card">
-                  <p>
-                    <img src="img/card2.png" alt="">
-                  </p>
-                  <img src="img/menu.svg" alt="menu" class="menuOn">
-                  <button class="delete-card">Видалити</button>
-                </div>
+               
               </div>
               <div class="add-cardFlex">
                 <button id="add-card2">
@@ -1234,13 +1281,6 @@
   <div class="contents1 cardsFlex">
     <h2>Мої банківські карти</h2>
     <div id="card-container">
-      <div class="card">
-        <p>
-          <img src="img/card2.png" alt="">
-        </p>
-        <img src="img/menu.svg" alt="menu" class="menuOn">
-        <button class="delete-card">Видалити</button>
-      </div>
     </div>
   
     <div class="add-cardFlex">
@@ -1285,130 +1325,90 @@
   <script src="script/range-slider.js"></script>
 
   <!-- Мої банківські карти -->
+  <!-- <script>
+ const menuButtons = document.querySelectorAll('.menuOn');
+  menuButtons.forEach(menuButton => {
+    menuButton.addEventListener('click', (event) => {
+      event.stopPropagation();
+      const menu = menuButton.nextElementSibling;
+      menu.classList.add('open');
+
+      const allDeleteButtons = document.querySelectorAll('.delete-card');
+      allDeleteButtons.forEach(button => {
+        button.classList.remove('deleteButtons');
+      });
+    });
+  });
+
+  </script> -->
   <script>
-    const cardContainer = document.getElementById('card-container');
-    const addCardButton = document.getElementById('add-card');
+ function addCard(cardContainer) {
+  const newCard = document.createElement('div');
+  newCard.classList.add('card');
+  newCard.innerHTML = `
+    <p><img src="img/card2.png" alt=""></p>
+    <img src="img/menu.svg" alt="menu" class="menuOn">
+    <button class="delete-card">Видалити</button>
+  `;
+  cardContainer.appendChild(newCard);
 
-    addCardButton.addEventListener('click', () => {
-      const newCard = document.createElement('div');
-      newCard.classList.add('card');
-      newCard.innerHTML = `
-        <p><img src="img/card2.png" alt=""></p>
-        <img src="img/menu.svg" alt="menu" class="menuOn">
-        <button class="delete-card">Видалити</button>
-      `;
-      cardContainer.appendChild(newCard);
-
-      const deleteButtons = document.querySelectorAll('.delete-card');
-      deleteButtons.forEach(button => {
-        button.addEventListener('click', () => {
-          button.parentNode.remove();
-        });
-      });
-
-      const menuButtons = document.querySelectorAll('.menuOn');
-      menuButtons.forEach(menuButton => {
-        menuButton.addEventListener('click', () => {
-          menuButton.nextElementSibling.classList.add('open');
-        });
-      });
+  const deleteButtons = newCard.querySelectorAll('.delete-card');
+  deleteButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      button.parentNode.remove();
     });
+  });
 
-    document.addEventListener('click', (event) => {
-      const isMenuButton = event.target.classList.contains('menuOn');
-      const isDeleteButton = event.target.classList.contains('delete-card');
-      const isOpen = document.querySelector('.open');
-
-      if (!isMenuButton && !isDeleteButton && isOpen) {
-        document.querySelectorAll('.delete-card').forEach((button) => {
-          button.classList.remove('open');
-        });
-      }
+  const menuButton = newCard.querySelector('.menuOn');
+  menuButton.addEventListener('click', (event) => {
+    event.stopPropagation();
+    const menu = menuButton.nextElementSibling;
+    menu.classList.add('open');
+    
+    // Remove the "deleteButtons" class from all elements with the "delete-card" class
+    const allDeleteButtons = document.querySelectorAll('.delete-card');
+    allDeleteButtons.forEach(button => {
+      button.classList.remove('deleteButtons');
     });
+  });
+}
+
+// Add cards to the card containers when the corresponding button is clicked
+const cardContainer1 = document.getElementById('card-container');
+const addCardButton1 = document.getElementById('add-card');
+addCardButton1.addEventListener('click', () => {
+  addCard(cardContainer1);
+});
+
+const cardContainer2 = document.getElementById('card-container2');
+const addCardButton2 = document.getElementById('add-card2');
+addCardButton2.addEventListener('click', () => {
+  addCard(cardContainer2);
+});
+
+const cardContainer3 = document.getElementById('card-container3');
+const addCardButton3 = document.getElementById('add-card3');
+addCardButton3.addEventListener('click', () => {
+  addCard(cardContainer3);
+});
+
+// Add a click event listener to all menu buttons
+const menuButtons = document.querySelectorAll('.menuOn');
+menuButtons.forEach(menuButton => {
+  menuButton.addEventListener('click', (event) => {
+    event.stopPropagation();
+    const menu = menuButton.nextElementSibling;
+    menu.classList.add('open');
+
+    // Remove the "deleteButtons" class from all elements with the "delete-card" class
+    const allDeleteButtons = document.querySelectorAll('.delete-card');
+    allDeleteButtons.forEach(button => {
+      button.classList.remove('deleteButtons');
+    });
+  });
+});
+
   </script>
-    <script>
-      const cardContainer2 = document.getElementById('card-container2');
-      const addCardButton2 = document.getElementById('add-card2');
-  
-      addCardButton2.addEventListener('click', () => {
-        const newCard = document.createElement('div');
-        newCard.classList.add('card');
-        newCard.innerHTML = `
-          <p><img src="img/card2.png" alt=""></p>
-          <img src="img/menu.svg" alt="menu" class="menuOn">
-          <button class="delete-card">Видалити</button>
-        `;
-        cardContainer2.appendChild(newCard);
-  
-        const deleteButtons = document.querySelectorAll('.delete-card');
-        deleteButtons.forEach(button => {
-          button.addEventListener('click', () => {
-            button.parentNode.remove();
-          });
-        });
-  
-        const menuButtons = document.querySelectorAll('.menuOn');
-        menuButtons.forEach(menuButton => {
-          menuButton.addEventListener('click', () => {
-            menuButton.nextElementSibling.classList.add('open');
-          });
-        });
-      });
-  
-      document.addEventListener('click', (event) => {
-        const isMenuButton = event.target.classList.contains('menuOn');
-        const isDeleteButton = event.target.classList.contains('delete-card');
-        const isOpen = document.querySelector('.open');
-  
-        if (!isMenuButton && !isDeleteButton && isOpen) {
-          document.querySelectorAll('.delete-card').forEach((button) => {
-            button.classList.remove('open');
-          });
-        }
-      });
-    </script>
-      <script>
-        const cardContainer3 = document.getElementById('card-container3');
-        const addCardButton3 = document.getElementById('add-card3');
-    
-        addCardButton3.addEventListener('click', () => {
-          const newCard = document.createElement('div');
-          newCard.classList.add('card');
-          newCard.innerHTML = `
-            <p><img src="img/card2.png" alt=""></p>
-            <img src="img/menu.svg" alt="menu" class="menuOn">
-            <button class="delete-card">Видалити</button>
-          `;
-          cardContainer3.appendChild(newCard);
-    
-          const deleteButtons = document.querySelectorAll('.delete-card');
-          deleteButtons.forEach(button => {
-            button.addEventListener('click', () => {
-              button.parentNode.remove();
-            });
-          });
-    
-          const menuButtons = document.querySelectorAll('.menuOn');
-          menuButtons.forEach(menuButton => {
-            menuButton.addEventListener('click', () => {
-              menuButton.nextElementSibling.classList.add('open');
-            });
-          });
-        });
-    
-        document.addEventListener('click', (event) => {
-          const isMenuButton = event.target.classList.contains('menuOn');
-          const isDeleteButton = event.target.classList.contains('delete-card');
-          const isOpen = document.querySelector('.open');
-    
-          if (!isMenuButton && !isDeleteButton && isOpen) {
-            document.querySelectorAll('.delete-card').forEach((button) => {
-              button.classList.remove('open');
-            });
-          }
-        });
-      </script>
-
 
   <!-- Скрипт для стрелок которые делают шаг назад. Когда забыли пороль можно увидеть-->
   <script>
@@ -1451,7 +1451,8 @@
     const menu = document.querySelector(".cabinet");
 
     buttonS.addEventListener("click", function() {
-      menu.classList.toggle("open");
+      // menu.classList.toggle("open");
+      menu.classList.add("open");
     });
 
     document.addEventListener("click", function(e) {
@@ -1487,6 +1488,8 @@
   });
   });
   </script>
+
+  <script src="script/burger.js"></script>
 
 </body>
 </html>
