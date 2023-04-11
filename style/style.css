@@ -2718,3 +2718,48 @@ input:focus {
   }
 }
 
+.card-container {
+  display: none;
+}
+.delate {
+  display: none;
+}
+.card-container {
+  padding: 12px 40px 12px 20px;
+  width: 100%;
+  background: rgba(95, 126, 225, 0.05);
+  border: 1px solid #5F7EE1;
+  border-radius: 10px;
+  box-sizing: border-box;
+  position: relative;
+}
+.card-containerBtn {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+.card-container > input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.delateOpen {
+  background: transparent !important;
+  color: transparent !important;
+}
+.delate {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background: #FFFFFF;
+  box-shadow: 4px 7px 20px rgba(171, 171, 171, 0.25);
+  border-radius: 10px;
+  font-family: 'Gilroy-Regular';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 120%;
+  color: #141414;
+  padding: 10px 20px;
+  cursor: pointer;
+}
