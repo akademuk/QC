@@ -2821,9 +2821,7 @@ input[type="range"]:focus {
 .claculatorContainerIframe1 .claculatorContainerSectionFlex {
   margin-bottom: 0 !important;
 }
-.contents1 iframe {
-  min-height: 500px;
-}
+
 @media(max-width: 340px) {
   .bodyIframe1 {
     max-width: 100%;
