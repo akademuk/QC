@@ -2861,7 +2861,6 @@ input[type="range"]:focus {
   }
   .claculatorContainerIframe2 .claculatorContainerSection .claculatorContainerSectionText {
     font-size: 14px;
-    width: 50%;
     text-align: right;
   }
 }
