@@ -2830,6 +2830,169 @@ input[type="range"]:focus {
 .claculatorContainerIframe2 .claculatorContainerSection:nth-last-of-type(1) {
   display: block;
 }
+body {
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.card-container {
+  display: none;
+}
+.delate {
+  display: none;
+}
+.cardsFlex {
+  width: 520px;
+  background: #FFFFFF;
+  border-radius: 30px;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+.add-cardFlex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 12px 0px 12px 20px;
+  width: 100%;
+  height: 54px;
+  border: 1px solid #5F7EE1;
+  border-radius: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+#add-card {
+  background: transparent;
+  border: none;
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 120%;
+  color: #797979;
+  display: flex;
+  align-items: center;
+}
+#add-card img {
+  margin-right: 8px;
+}
+.cardsFlex .card-container {
+  padding: 8px 19px 8px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  height: 54px;
+  background: rgba(95, 126, 225, 0.05);
+  border: 1px solid #5F7EE1;
+  border-radius: 10px;
+  align-items: center;
+  margin-bottom: 14px;
+  position: relative;
+}
+.cardsFlex h2 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  color: #111B25;
+  margin-bottom: 20px;
+}
+.card-number {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 120%;
+  color: #797979;
+  border: none;
+  background: transparent;
+  margin: 0;
+  margin-left: 8px;
+}
+.informationCard {
+  display: flex;
+  align-items: center;
+  margin-top: 4px;
+}
+.cardS {
+  width: 25px;
+  height: 19px;
+}
+.cardS img {
+  max-width: 100%;
+  width: 100%;
+  background: transparent;
+}
+.radioCheced {
+  display: flex;
+  align-items: center;
+}
+.cardBank {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+}
+.card-containerBtn .delateOpen{
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.cardsFlex .card-container label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.delate {
+  position: absolute;
+  top: -8px;
+  right: -18px;
+  width: 103px;
+  height: 37px;
+  background: #FFFFFF;
+  box-shadow: 4px 7px 20px rgba(171, 171, 171, 0.25);
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 120%;
+  color: #141414;
+  cursor: pointer;
+}
+
+input[type="range"]:focus {
+  border: 1px solid transparent;
+}
+
+.bodyIframe1 .credit_onlineContainer {
+  width: 100%;
+  background: #fff;
+}
+.bodyIframe1 {
+  max-width: 480px;
+  background: transparent;
+  width: 100%;
+  overflow: hidden;
+}
+.claculatorContainerIframe1 {
+  display: flex;
+  flex-direction: row;
+}
+.submitForm {
+  margin-top: 20px !important;
+}
+.claculatorContainerIframe1 .claculatorContainerSectionFlex {
+  margin-bottom: 0 !important;
+}
+.contents1 iframe {
+  min-height: 500px !important;
+}
+.contents2 iframe{
+  min-height: 380px !important;
+}
+.claculatorContainerIframe2 .claculatorContainerSection:nth-last-of-type(1) {
+  display: block;
+}
 @media(max-width: 420px) {
   .bodyIframe1 {
     max-width: 100%;
