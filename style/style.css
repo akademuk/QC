@@ -2847,4 +2847,19 @@ input[type="range"]:focus {
   .contents2 iframe{
     min-height: 420px !important;
   }
+  .claculatorContainerIframe1 .claculatorContainerSectionFlex{
+    margin-bottom: 20px !important;
+  }
+  .claculatorContainerIframe2 {
+    padding: 10px;
+  }
+  .claculatorContainerIframe2 .claculatorContainerSection p {
+    font-size: 14px;
+    width: 50%;
+  }
+  .claculatorContainerIframe2 .claculatorContainerSection .claculatorContainerSectionText {
+    font-size: 14px;
+    width: 50%;
+    text-align: right;
+  }
 }
