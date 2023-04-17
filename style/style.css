@@ -2860,7 +2860,7 @@ input[type="range"]:focus {
     font-size: 14px !important;
     text-align: left !important;
   }
-  .claculatorContainerIframe2 .claculatorContainerSection .claculatorContainerSectionText {
+  .claculatorContainerIframe2 .claculatorContainerSection .claculatorContainerSectionCenter {
     font-size: 14px;
     text-align: right;
     margin-top: 0;
