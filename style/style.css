@@ -2814,15 +2814,24 @@ input[type="range"]:focus {
   display: flex;
   flex-direction: row;
 }
+.submitForm {
+  margin-top: 20px;
+}
 @media(max-width: 340px) {
   .bodyIframe1 {
     max-width: 100%;
     width: 100%;
+  }
+  .submitForm {
+    min-height: 580px;
   }
   .claculatorContainerSectionFlex.flexinf{
     align-items: center !important;
   }
   .claculatorContainerIframe1 {
     flex-direction: column !important;
+  }
+  .claculatorContainerIframe1 .claculatorContainerSectionFlex {
+    margin-bottom: 0;
   }
 }
