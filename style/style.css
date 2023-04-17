@@ -2830,7 +2830,7 @@ input[type="range"]:focus {
     width: 100%;
   }
   .contents1 iframe{
-    min-height: 580px;
+    min-height: 580px !important;
   }
   .claculatorContainerSectionFlex.flexinf{
     align-items: center !important;
