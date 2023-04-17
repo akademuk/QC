@@ -2821,8 +2821,13 @@ input[type="range"]:focus {
 .claculatorContainerIframe1 .claculatorContainerSectionFlex {
   margin-bottom: 0 !important;
 }
-
-@media(max-width: 340px) {
+.contents1 iframe {
+  min-height: 500px !important;
+}
+.contents2 iframe{
+  min-height: 380px !important;
+}
+@media(max-width: 420px) {
   .bodyIframe1 {
     max-width: 100%;
     width: 100%;
@@ -2835,5 +2840,11 @@ input[type="range"]:focus {
   }
   .claculatorContainerIframe1 {
     flex-direction: column !important;
+  }
+  .contents1 iframe {
+    min-height: 600px !important;
+  }
+  .contents2 iframe{
+    min-height: 420px !important;
   }
 }
