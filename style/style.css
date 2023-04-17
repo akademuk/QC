@@ -2815,7 +2815,10 @@ input[type="range"]:focus {
   flex-direction: row;
 }
 .submitForm {
-  margin-top: 20px;
+  margin-top: 20px !important;
+}
+.claculatorContainerIframe1 .claculatorContainerSectionFlex {
+  margin-bottom: 0 !important;
 }
 @media(max-width: 340px) {
   .bodyIframe1 {
@@ -2830,8 +2833,5 @@ input[type="range"]:focus {
   }
   .claculatorContainerIframe1 {
     flex-direction: column !important;
-  }
-  .claculatorContainerIframe1 .claculatorContainerSectionFlex {
-    margin-bottom: 0;
   }
 }
