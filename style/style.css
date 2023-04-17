@@ -2036,7 +2036,6 @@ input[type="range"]:active::-webkit-slider-thumb{
 .contents1Promo {
   width: 100%;
   padding-bottom: 30px;
-  border-bottom: 1px solid #BBBBBB;
   text-align: center;
   margin-top: 30px;
 }
@@ -2762,4 +2761,61 @@ input:focus {
   color: #141414;
   padding: 10px 20px;
   cursor: pointer;
+}
+
+
+.placeholderTextPos {
+  z-index: 110;
+}
+
+.modalWindowContainerSection {
+  padding: 0;
+  height: 54px;
+  box-sizing: border-box;
+  background: #F3F3F3;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+.select2 {
+  height: 54px;
+  box-sizing: border-box;
+  background: #F3F3F3;
+  border-radius: 10px;
+}
+.select2-container .select2-selection--single {
+  height: 100%;
+  border: none;
+  box-sizing: border-box;
+  background: #F3F3F3;
+  border-radius: 10px;
+  padding: 17px 12px 12px 10px;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  top: 14px;
+    right: 14px;
+}
+
+input[type="range"]:focus {
+  border: 1px solid transparent;
+}
+
+.bodyIframe1 .credit_onlineContainer {
+  width: 100%;
+  background: #fff;
+}
+.bodyIframe1 {
+  max-width: 480px;
+  background: transparent;
+  width: 100%;
+  overflow: hidden;
+}
+@media(max-width: 576) {
+  .bodyIframe1 {
+    max-width: 100%;
+    width: 100%;
+  }
+  .claculatorContainerSectionFlex.flexinf{
+    align-items: center !important;
+  }
 }
