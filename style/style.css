@@ -2853,9 +2853,11 @@ input[type="range"]:focus {
   .claculatorContainerIframe2 {
     padding: 10px;
   }
+  .claculatorContainerIframe2 .claculatorContainerSection {
+    width: 50%;
+  }
   .claculatorContainerIframe2 .claculatorContainerSection p {
     font-size: 14px;
-    width: 50%;
   }
   .claculatorContainerIframe2 .claculatorContainerSection .claculatorContainerSectionText {
     font-size: 14px;
