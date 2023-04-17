@@ -2794,7 +2794,7 @@ input:focus {
 }
 .select2-container--default .select2-selection--single .select2-selection__arrow {
   top: 14px;
-    right: 14px;
+  right: 14px;
 }
 
 input[type="range"]:focus {
@@ -2859,11 +2859,11 @@ input[type="range"]:focus {
   .claculatorContainerIframe2 .claculatorContainerSection {
     width: 50%;
   }
-  .claculatorContainerIframe2 .claculatorContainerSection p {
+  .claculatorContainerIframe2 .claculatorContainerSection .claculatorContainerSectionText{
     font-size: 14px !important;
     text-align: left !important;
   }
-  .claculatorContainerIframe2 .claculatorContainerSection .claculatorContainerSectionCenter .claculatorContainerSectionText{
+  .claculatorContainerIframe2 .claculatorContainerSectionCenter .claculatorContainerSectionText{
     font-size: 14px;
     text-align: right !important;
     margin-top: 0 !important;
