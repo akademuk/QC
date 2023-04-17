@@ -2810,12 +2810,19 @@ input[type="range"]:focus {
   width: 100%;
   overflow: hidden;
 }
-@media(max-width: 576) {
+.claculatorContainerIframe1 {
+  display: flex;
+  flex-direction: row;
+}
+@media(max-width: 576px) {
   .bodyIframe1 {
     max-width: 100%;
     width: 100%;
   }
   .claculatorContainerSectionFlex.flexinf{
     align-items: center !important;
+  }
+  .claculatorContainerIframe1 {
+    flex-direction: column !important;
   }
 }
