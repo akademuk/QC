@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/reset.css">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Document</title>
+</head>
+<body class="bodyIframe1">
+    <!-- Калькулятор -->
+   
+      <div class="credit_onlineContainer credit_onlineContainerFlex">
+        <div class="credit_onlineContainerLeft" id="fields">
+            <form class="rangeForm">
+                <div class="sliderMoney">
+                    <div class="sliderContainerText">
+                        <div class="maxLenghtContent">
+                            <p>Сума позики</p>
+                            <div id="innerMoney">0</div>
+                        </div>
+                        <div class="maxLenght">
+                            <p>від 500,00 грн.</p>
+                            <p>до 15 000,00 грн.</p>
+                        </div>
+                    </div>
+                    <input type="range" id="valueMoney" min="500" max="18000" value="0" step="100" oninput="rangeMoney()">
+                </div>
+                <div class="sliderDate">
+                    <div class="sliderContainerText">
+                        <div class="maxLenghtContent">
+                            <p>Срок платежу</p>
+                            <div id="innerDate">0</div>
+                        </div>
+                        <div class="maxLenght">
+                            <p>від 2 днів</p>
+                            <p>до 30 днів</p>
+                        </div>
+                    </div>
+                    <input type="range" id="valueDate" min="0" max="30" value="0" oninput="rangeMoney()">
+                </div>
+                <div class="formContainer">
+                    <div class="formContainerLeft">
+                        <div class="claculatorContainer">
+                          <div class="claculatorContainerSection">
+                              <p class="claculatorContainerSectionText">Повернути до</p>
+                              <p class="claculatorContainerSectionText">Повертаєте</p>
+                              <p class="claculatorContainerSectionText">Відсотки</p>
+                          </div>
+                          <div class="claculatorContainerSection claculatorContainerSectionCenter">
+                            <p class="claculatorContainerSectionText" id="resultDate"></p>
+                            <p class="claculatorContainerSectionText" id="resultSum" class="boldResult">0</p>
+                            <p class="claculatorContainerSectionText" id="resultPercent"></p>
+                          </div>
+                          <div class="claculatorContainerSection claculatorContainerSectionCenterRight">
+                            <p class="claculatorContainerSectionText">к-ть оплат: 10</p>
+                            <p class="claculatorContainerSectionText">по 1515 грн.</p>
+                            <p class="claculatorContainerSectionText">за 300 днів</p>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+      </div>
+   
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
+  <!-- Калькулятор -->
+  <script src="script/range-slider.js"></script>
+
+</body>
+</html>
