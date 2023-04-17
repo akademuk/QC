@@ -2827,6 +2827,9 @@ input[type="range"]:focus {
 .contents2 iframe{
   min-height: 380px !important;
 }
+.claculatorContainerIframe2 .claculatorContainerSection:nth-last-of-type(1) {
+  display: block;
+}
 @media(max-width: 420px) {
   .bodyIframe1 {
     max-width: 100%;
@@ -2864,5 +2867,8 @@ input[type="range"]:focus {
     font-size: 14px;
     text-align: right !important;
     margin-top: 0 !important;
+  }
+  .claculatorContainerIframe2 .claculatorContainerSection:nth-last-of-type(1) {
+    display: none;
   }
 }
