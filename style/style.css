@@ -2825,7 +2825,7 @@ input[type="range"]:focus {
     max-width: 100%;
     width: 100%;
   }
-  .submitForm {
+  .contents1 iframe{
     min-height: 580px;
   }
   .claculatorContainerSectionFlex.flexinf{
