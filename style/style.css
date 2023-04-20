@@ -2875,9 +2875,6 @@ input:focus {
 
 
 
-
-
-
 @media (max-width: 1280px) {
   header .wrapper {
     padding: 0 16px;
@@ -2913,6 +2910,9 @@ input:focus {
     margin-top: 20px;
     margin-bottom: 16px;
   }
+  .contents {
+    margin-top: 100px;
+  }
 }
 
 
@@ -2934,6 +2934,9 @@ input:focus {
 
   header .wrapper>.headerBtn>.headerPay {
     display: none;
+  }
+  .contents {
+    margin-top: 0;
   }
 
   header .wrapper>.headerBtn>.headerExit {
@@ -3576,11 +3579,33 @@ footer {
   border: 1px solid transparent !important;
 }
 .modalWindowContainerSection>.placeholderText {
-  top: 7px !important;
+  top: 2px !important;
   left: 17px !important;
 }
-#RegistrationEqualsResidential {
+#tablinkWindow3 .tabs #tab5 form .modalWindowContainerSection .placeholderText {
+  top: 7px !important;
+}
+.select2-container .select2-selection--single {
+  height: 100%;
+  padding: 14px 20px 10px 17px !important;
+}
+.select2-selection__rendered {
+  padding-left: 0;
+}
+.modalWindowContainerSection input {
+  padding: 20px 20px 10px 17px !important;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  top: 20px !important;
+}
+.chexbox {
   margin-top: 10px;
+}
+.tabsWindow {
+  margin-top: 125px;
+}
+#modalWindow .modalWindow-content .modalWindowContainer {
+  margin-top: 30px;
 }
 @media (max-width: 1300px) {
   .footerTop {
@@ -3615,6 +3640,12 @@ footer {
 .navigationFooter li {
   width: auto;
   margin-right: 0;
+}
+.tabsWindow {
+  margin-top: 200px;
+}
+.tabsWindow {
+  width: 25%;
 }
 }
 
@@ -3680,7 +3711,23 @@ footer {
 .contacts li {
   width: 100%;
 }
-
+.tabsWindow {
+  margin-top: 100px;
+}
+header {
+  height: 50px;
+  box-sizing: border-box;
+}
+.logo {
+  height: 28px;
+}
+.logo a {
+  height: 100%;
+}
+.logo a img {
+  width: 100%;
+  height: 100%;
+}
 }
 
 
@@ -3704,6 +3751,20 @@ footer {
 }
 .contacts li a {
   font-size: 14px;
+}
+header {
+  height: 50px;
+  box-sizing: border-box;
+}
+.logo {
+  height: 28px;
+}
+.logo a {
+  height: 100%;
+}
+.logo a img {
+  width: 100%;
+  height: 100%;
 }
 }
 
