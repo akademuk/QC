@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,344 +10,381 @@
     <link rel="stylesheet" href="style/style.css">
     <title>2.PesonalInfo</title>
 </head>
+
 <body>
-     <!-- Регистрация -->
-  <div id="modalWindow" class="modalWindow">
-    <div class="modalWindow-content">
-      <div class="tabsWindow">
-        <button class="tablinkWindow active">Особисті дані</button>
-        <button class="tablinkWindow">Паспорт</button>
-        <button class="tablinkWindow">Адреси</button>
-        <button class="tablinkWindow">Зайнятість</button>
-      </div>
-      <div class="modalWindowContainer">
-        <div id="tablinkWindow1" class="tablinkWindowContent active">
-            <p class="tablinkWindowContentRed">Контактна особа вже була додана</p>
-            <form>
-                <div class="modalWindowContainerSection">
-                    <span class="placeholderText">Прізвище</span>
-                    <input type="text" class="placeholderInput" placeholder="Прізвище" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
-                </div>
-                <span class="error">Поле “Прізвище” обов’язкове для заповнення</span>
-                <div class="modalWindowContainerSection">
-                    <span class="placeholderText">Ім’я</span>
-                    <input type="text" class="placeholderInput" placeholder="Ім’я" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
-                </div>
-                <span class="error">Поле “Ім’я” обов’язкове для заповнення</span>
-                <div class="modalWindowContainerSection">
-                    <span class="placeholderText">По батькові</span>
-                    <input type="text" class="placeholderInput" placeholder="По батькові" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
-                </div>
-                <span class="error">Поле “По батькові” обов’язкове для заповнення</span>
-                <div class="modalWindowContainerSection">
-                    <span class="placeholderText placeholderTextPos">Дата народження</span>
-                    <input type="date" data-date="" data-date-format="dd.mm.yyyy" value="2019-01-17" max="9999-12-31" class="placeholderInput customDateInput">
-                </div>
-                <span class="error">Поле “Дата народження” обов’язкове для заповнення</span>
-                <div class="modalWindowContainerSection">
-                    <span class="placeholderText">ІПН</span>
-                    <input type="text" class="placeholderInput" placeholder="ІПН" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
-                    <button>
-                        <img src="img/info.svg" alt="info">
-                    </button>
-                </div>
-                <span class="error">Поле “ІПН” обов’язкове для заповнення</span>
-                <div class="modalWindowContainerSection">
-                    <span class="placeholderText">Пошта (Email)</span>
-                    <input type="email" class="placeholderInput" placeholder="Пошта (Email)" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
-                </div>
-                <span class="error">Поле “Пошта (Email)” обов’язкове для заповнення</span>
-            </form>
-            <a href="#" class="submitForm" onclick="nextTab()">Зберегти зміни</a>
-        </div>
-        <div id="tablinkWindow2" class="tablinkWindowContent">
-            <div class="tabs">
-                <button class="tablinks1 active" onclick="openTab1(event, 'tab3')">Паспорт</button>
-                <button class="tablinks1" onclick="openTab1(event, 'tab4')">ID карта</button>
+    <!-- Регистрация -->
+    <div id="modalWindow" class="modalWindow">
+        <div class="modalWindow-content">
+            <div class="tabsWindow">
+                <button class="tablinkWindow active">Особисті дані</button>
+                <button class="tablinkWindow">Паспорт</button>
+                <button class="tablinkWindow">Адреси</button>
+                <button class="tablinkWindow">Зайнятість</button>
             </div>
-            <div id="tab3" class="tabcontent1 active">
-                <form>
-                    <div class="modalWindowContainerSection">
-                        <span class="placeholderText">Серія паспорта</span>
-                        <input type="text" class="placeholderInput" placeholder="Серія паспорта" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
-                        <button>
-                            <img src="img/info.svg" alt="info">
-                        </button>
+            <div class="modalWindowContainer">
+                <div id="tablinkWindow1" class="tablinkWindowContent active">
+                    <p class="tablinkWindowContentRed">Контактна особа вже була додана</p>
+                    <form>
+                        <div class="modalWindowContainerSection">
+                            <span class="placeholderText">Прізвище</span>
+                            <input type="text" class="placeholderInput" placeholder="Прізвище"
+                                oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
+                        </div>
+                        <span class="error">Поле “Прізвище” обов’язкове для заповнення</span>
+                        <div class="modalWindowContainerSection">
+                            <span class="placeholderText">Ім’я</span>
+                            <input type="text" class="placeholderInput" placeholder="Ім’я"
+                                oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
+                        </div>
+                        <span class="error">Поле “Ім’я” обов’язкове для заповнення</span>
+                        <div class="modalWindowContainerSection">
+                            <span class="placeholderText">По батькові</span>
+                            <input type="text" class="placeholderInput" placeholder="По батькові"
+                                oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
+                        </div>
+                        <span class="error">Поле “По батькові” обов’язкове для заповнення</span>
+                        <div class="modalWindowContainerSection">
+                            <span class="placeholderText placeholderTextPos">Дата народження</span>
+                            <input type="date" data-date="" data-date-format="dd.mm.yyyy" value="2019-01-17"
+                                max="9999-12-31" class="placeholderInput customDateInput">
+                        </div>
+                        <span class="error">Поле “Дата народження” обов’язкове для заповнення</span>
+                        <div class="modalWindowContainerSection">
+                            <span class="placeholderText">ІПН</span>
+                            <input type="text" class="placeholderInput" placeholder="ІПН"
+                                oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
+                            <button>
+                                <img src="img/info.svg" alt="info">
+                            </button>
+                        </div>
+                        <span class="error">Поле “ІПН” обов’язкове для заповнення</span>
+                        <div class="modalWindowContainerSection">
+                            <span class="placeholderText">Пошта (Email)</span>
+                            <input type="email" class="placeholderInput" placeholder="Пошта (Email)"
+                                oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
+                        </div>
+                        <span class="error">Поле “Пошта (Email)” обов’язкове для заповнення</span>
+                    </form>
+                    <a href="#" class="submitForm" onclick="nextTab()">Зберегти зміни</a>
+                </div>
+                <div id="tablinkWindow2" class="tablinkWindowContent">
+                    <div class="tabs">
+                        <button class="tablinks1 active" onclick="openTab1(event, 'tab3')">Паспорт</button>
+                        <button class="tablinks1" onclick="openTab1(event, 'tab4')">ID карта</button>
                     </div>
-                    <span class="error">Поле “Серія паспорта” обов’язкове для заповнення</span>
-                    <div class="modalWindowContainerSection">
-                        <span class="placeholderText">Номер паспорта</span>
-                        <input type="text" class="placeholderInput" placeholder="Номер паспорта" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
-                        <button>
-                            <img src="img/info.svg" alt="info">
-                        </button>
+                    <div id="tab3" class="tabcontent1 active">
+                        <form>
+                            <div class="modalWindowContainerSection">
+                                <span class="placeholderText">Серія паспорта</span>
+                                <input type="text" class="placeholderInput" placeholder="Серія паспорта"
+                                    oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
+                                <button>
+                                    <img src="img/info.svg" alt="info">
+                                </button>
+                            </div>
+                            <span class="error">Поле “Серія паспорта” обов’язкове для заповнення</span>
+                            <div class="modalWindowContainerSection">
+                                <span class="placeholderText">Номер паспорта</span>
+                                <input type="text" class="placeholderInput" placeholder="Номер паспорта"
+                                    oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
+                                <button>
+                                    <img src="img/info.svg" alt="info">
+                                </button>
+                            </div>
+                            <span class="error">Поле “Номер паспорта” обов’язкове для заповнення</span>
+                            <div class="modalWindowContainerSection">
+                                <span class="placeholderText">Ким видано</span>
+                                <input type="text" class="placeholderInput" placeholder="Ким видано"
+                                    oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
+                                <button>
+                                    <img src="img/info.svg" alt="info">
+                                </button>
+                            </div>
+                            <span class="error">Поле “Ким видано” обов’язкове для заповнення</span>
+                            <div class="modalWindowContainerSection">
+                                <span class="placeholderText placeholderTextPos">Дата видачі</span>
+                                <input type="date" data-date="" data-date-format="dd.mm.yyyy" value="2019-01-17"
+                                    max="9999-12-31" class="placeholderInput customDateInput">
+                                <button class="infoCalendar">
+                                    <img src="img/info.svg" alt="info">
+                                </button>
+                            </div>
+                            <span class="error">Поле “Дата видачі” обов’язкове для заповнення</span>
+                        </form>
+                        <a href="#" class="submitForm" onclick="nextTab()">Зберегти зміни</a>
                     </div>
-                    <span class="error">Поле “Номер паспорта” обов’язкове для заповнення</span>
-                    <div class="modalWindowContainerSection">
-                        <span class="placeholderText">Ким видано</span>
-                        <input type="text" class="placeholderInput" placeholder="Ким видано" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
-                        <button>
-                            <img src="img/info.svg" alt="info">
-                        </button>
-                    </div>
-                    <span class="error">Поле “Ким видано” обов’язкове для заповнення</span>
-                    <div class="modalWindowContainerSection">
-                        <span class="placeholderText placeholderTextPos">Дата видачі</span>
-                        <input type="date" data-date="" data-date-format="dd.mm.yyyy" value="2019-01-17" max="9999-12-31" class="placeholderInput customDateInput">
-                        <button class="infoCalendar">
-                            <img src="img/info.svg" alt="info">
-                        </button>
-                    </div>
-                    <span class="error">Поле “Дата видачі” обов’язкове для заповнення</span>
-                </form>
-                <a href="#" class="submitForm" onclick="nextTab()">Зберегти зміни</a>
-            </div>  
-            <div id="tab4" class="tabcontent1">
-                <form>
-                    <div class="modalWindowContainerSection">
-                        <span class="placeholderText">Документ №</span>
-                        <input type="text" class="placeholderInput" placeholder="Документ №" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
-                        <button>
-                            <img src="img/info.svg" alt="info">
-                        </button>
-                    </div>
-                    <span class="error">Поле “Документ №” обов’язкове для заповнення</span>
-                    <div class="modalWindowContainerSection">
-                        <span class="placeholderText">Номер запису</span>
-                        <input type="text" class="placeholderInput" placeholder="Номер запису" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
-                        <button>
-                            <img src="img/info.svg" alt="info">
-                        </button>
-                    </div>
-                    <span class="error">Поле “Номер запису” обов’язкове для заповнення</span>
-                    <div class="modalWindowContainerSection">
-                        <span class="placeholderText">Ким видано</span>
-                        <input type="text" class="placeholderInput" placeholder="Ким видано" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
-                        <button>
-                            <img src="img/info.svg" alt="info">
-                        </button>
-                    </div>
-                    <span class="error">Поле “Ким видано” обов’язкове для заповнення</span>
-                    <div class="modalWindowContainerSection">
-                        <span class="placeholderText placeholderTextPos">Дата видачі</span>
-                        <input type="date" data-date="" data-date-format="dd.mm.yyyy" value="2019-01-17" max="9999-12-31" class="placeholderInput customDateInput">
+                    <div id="tab4" class="tabcontent1">
+                        <form>
+                            <div class="modalWindowContainerSection">
+                                <span class="placeholderText">Документ №</span>
+                                <input type="text" class="placeholderInput" placeholder="Документ №"
+                                    oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
+                                <button>
+                                    <img src="img/info.svg" alt="info">
+                                </button>
+                            </div>
+                            <span class="error">Поле “Документ №” обов’язкове для заповнення</span>
+                            <div class="modalWindowContainerSection">
+                                <span class="placeholderText">Номер запису</span>
+                                <input type="text" class="placeholderInput" placeholder="Номер запису"
+                                    oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
+                                <button>
+                                    <img src="img/info.svg" alt="info">
+                                </button>
+                            </div>
+                            <span class="error">Поле “Номер запису” обов’язкове для заповнення</span>
+                            <div class="modalWindowContainerSection">
+                                <span class="placeholderText">Ким видано</span>
+                                <input type="text" class="placeholderInput" placeholder="Ким видано"
+                                    oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
+                                <button>
+                                    <img src="img/info.svg" alt="info">
+                                </button>
+                            </div>
+                            <span class="error">Поле “Ким видано” обов’язкове для заповнення</span>
+                            <div class="modalWindowContainerSection">
+                                <span class="placeholderText placeholderTextPos">Дата видачі</span>
+                                <input type="date" data-date="" data-date-format="dd.mm.yyyy" value="2019-01-17"
+                                    max="9999-12-31" class="placeholderInput customDateInput">
 
-                        <button class="infoCalendar">
-                            <img src="img/info.svg" alt="info">
-                        </button>
+                                <button class="infoCalendar">
+                                    <img src="img/info.svg" alt="info">
+                                </button>
+                            </div>
+                            <span class="error">Поле “Дата видачі” обов’язкове для заповнення</span>
+                        </form>
+                        <a href="#" class="submitForm" onclick="nextTab()">Зберегти зміни</a>
                     </div>
-                    <span class="error">Поле “Дата видачі” обов’язкове для заповнення</span>
-                </form>
-                <a href="#" class="submitForm" onclick="nextTab()">Зберегти зміни</a>
+                </div>
+                <div id="tablinkWindow3" class="tablinkWindowContent">
+                    <div class="tabs">
+                        <button class="tablinks2 active" onclick="openTab2(event, 'tab5')">Реєстрація</button>
+                        <button class="tablinks2" onclick="openTab2(event, 'tab6')">Проживання</button>
+                    </div>
+                    <div id="tab5" class="tabcontent2 active">
+                        <form>
+                            <div class="modalWindowContainerSection">
+                                <div class="modalWindowContainerSection">
+                                    <span class="placeholderText placeholderTextPos">Область</span>
+                                    <select class="placeholderInput">
+                                        <option value="">Житомирська</option>
+                                        <option value="">Житомирська</option>
+                                        <option value="">Житомирська</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <span class="error">Поле “Дата видачі” обов’язкове для заповнення</span>
+                            <div class="modalWindowContainerSection">
+                                <div class="modalWindowContainerSection">
+                                    <span class="placeholderText placeholderTextPos">Населений пункт</span>
+                                    <select class="placeholderInput">
+                                        <option value="">м. Житомир, Житомирський р-н</option>
+                                        <option value="">м. Житомир, Житомирський р-н</option>
+                                        <option value="">м. Житомир, Житомирський р-н</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <span class="error">Поле “Дата видачі” обов’язкове для заповнення</span>
+                            <div class="modalWindowContainerSection">
+                                <div class="modalWindowContainerSection">
+                                    <span class="placeholderText placeholderTextPos">Вулиця</span>
+                                    <select class="placeholderInput">
+                                        <option value="">вул. Довженка</option>
+                                        <option value="">вул. Довженка</option>
+                                        <option value="">вул. Довженка</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <span class="error">Поле “Дата видачі” обов’язкове для заповнення</span>
+                            <div class="modalWindowContainerSectionSmoll">
+                                <div class="modalWindowContainerSection">
+                                    <span class="placeholderText">Будинок</span>
+                                    <input type="text" name="text" class="placeholderInput" placeholder="Будинок"
+                                        oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
+                                </div>
+                                <div class="modalWindowContainerSection">
+                                    <span class="placeholderText">Корпус</span>
+                                    <input type="text" name="text" class="placeholderInput" placeholder="Корпус"
+                                        oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
+                                </div>
+                                <div class="modalWindowContainerSection">
+                                    <span class="placeholderText">Квартира</span>
+                                    <input type="text" name="text" class="placeholderInput" placeholder="Квартира"
+                                        oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
+                                </div>
+                            </div>
+                            <div class="chexbox" style="margin-top: 14px;">
+                                <input type="checkbox">
+                                <p>Я живу за цією адресою.</p>
+                            </div>
+                        </form>
+                        <a href="#" class="submitForm" onclick="nextTab()">Зберегти зміни</a>
+                    </div>
+                    <div id="tab6" class="tabcontent2">
+                        <form>
+                            <div class="modalWindowContainerSection">
+                                <div class="modalWindowContainerSection">
+                                    <span class="placeholderText placeholderTextPos">Область</span>
+                                    <select class="placeholderInput">
+                                        <option value="">Житомирська</option>
+                                        <option value="">Житомирська</option>
+                                        <option value="">Житомирська</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <span class="error">Поле “Дата видачі” обов’язкове для заповнення</span>
+                            <div class="modalWindowContainerSection">
+                                <div class="modalWindowContainerSection">
+                                    <span class="placeholderText placeholderTextPos">Населений пункт</span>
+                                    <select class="placeholderInput">
+                                        <option value="">м. Житомир, Житомирський р-н</option>
+                                        <option value="">м. Житомир, Житомирський р-н</option>
+                                        <option value="">м. Житомир, Житомирський р-н</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <span class="error">Поле “Дата видачі” обов’язкове для заповнення</span>
+                            <div class="modalWindowContainerSection">
+                                <div class="modalWindowContainerSection">
+                                    <span class="placeholderText placeholderTextPos">Вулиця</span>
+                                    <select class="placeholderInput">
+                                        <option value="">вул. Довженка</option>
+                                        <option value="">вул. Довженка</option>
+                                        <option value="">вул. Довженка</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <span class="error">Поле “Дата видачі” обов’язкове для заповнення</span>
+                            <div class="modalWindowContainerSectionSmoll">
+                                <div class="modalWindowContainerSection">
+                                    <span class="placeholderText">Будинок</span>
+                                    <input type="text" name="text" class="placeholderInput" placeholder="Будинок"
+                                        oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
+                                </div>
+                                <div class="modalWindowContainerSection">
+                                    <span class="placeholderText">Корпус</span>
+                                    <input type="text" name="text" class="placeholderInput" placeholder="Корпус"
+                                        oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
+                                </div>
+                                <div class="modalWindowContainerSection">
+                                    <span class="placeholderText">Квартира</span>
+                                    <input type="text" name="text" class="placeholderInput" placeholder="Квартира"
+                                        oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
+                                </div>
+                            </div>
+                        </form>
+                        <a href="#" class="submitForm" onclick="nextTab()">Зберегти зміни</a>
+                    </div>
+                </div>
+                <div id="tablinkWindow4" class="tablinkWindowContent">
+                    <form>
+                        <div class="modalWindowContainerSection">
+                            <div class="modalWindowContainerSection">
+                                <span class="placeholderText placeholderTextPos">Тип зайнятості</span>
+                                <select class="placeholderInput">
+                                    <option value=""
+                                        title="Військовослужбовець/СБУ/силові структури/&nbsp;ТрО/прикордонна служба">
+                                        Військовослужбовець/СБУ/силові структури</option>
+                                    <option value=""
+                                        title="Військовослужбовець/СБУ/силові структури/&nbsp;ТрО/прикордонна служба">
+                                        Військовослужбовець/СБУ/силові структури</option>
+                                    <option value=""
+                                        title="Військовослужбовець/СБУ/силові структури/&nbsp;ТрО/прикордонна служба">
+                                        Військовослужбовець/СБУ/силові структури</option>
+                                </select>
+                            </div>
+                        </div>
+                        <span class="error">Поле “Дата видачі” обов’язкове для заповнення</span>
+                        <div class="modalWindowContainerSection">
+                            <div class="modalWindowContainerSection">
+                                <span class="placeholderText placeholderTextPos">Рівень доходів</span>
+                                <select class="placeholderInput">
+                                    <option value="">Більше 10 000 грн</option>
+                                    <option value="">Більше 10 000 грн</option>
+                                    <option value="">Більше 10 000 грн</option>
+                                </select>
+                            </div>
+                        </div>
+                        <span class="error">Поле “Дата видачі” обов’язкове для заповнення</span>
+                        <div class="modalWindowContainerSection">
+                            <div class="modalWindowContainerSection">
+                                <span class="placeholderText placeholderTextPos">Рівень витрат</span>
+                                <select class="placeholderInput">
+                                    <option value="">Від 0 до 1000 грн</option>
+                                    <option value="">Від 0 до 10 грн</option>
+                                    <option value="">Від 0 до 100 грн</option>
+                                </select>
+                            </div>
+                        </div>
+                        <span class="error">Поле “Дата видачі” обов’язкове для заповнення</span>
+                        <div class="chexbox">
+                            <input type="checkbox">
+                            <p>Я не є <a href="#">політичною особою</a> або пов’язаною з ним особою
+                                (в тому числі членом його сім’ї)</p>
+                        </div>
+                    </form>
+                    <a href="#" class="submitForm closeWindow">Зберегти зміни</a>
+                </div>
             </div>
         </div>
-        <div id="tablinkWindow3" class="tablinkWindowContent">
-            <div class="tabs">
-                <button class="tablinks2 active" onclick="openTab2(event, 'tab5')">Реєстрація</button>
-                <button class="tablinks2" onclick="openTab2(event, 'tab6')">Проживання</button>
-            </div>
-            <div id="tab5" class="tabcontent2 active">
-                <form>
-                    <div class="modalWindowContainerSection">
-                        <div class="modalWindowContainerSection">
-                            <span class="placeholderText placeholderTextPos">Область</span>
-                            <select class="placeholderInput">
-                                <option value="">Житомирська</option>
-                                <option value="">Житомирська</option>
-                                <option value="">Житомирська</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="modalWindowContainerSection">
-                        <div class="modalWindowContainerSection">
-                            <span class="placeholderText placeholderTextPos">Населений пункт</span>
-                            <select class="placeholderInput">
-                                <option value="">м. Житомир, Житомирський р-н</option>
-                                <option value="">м. Житомир, Житомирський р-н</option>
-                                <option value="">м. Житомир, Житомирський р-н</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="modalWindowContainerSection">
-                        <div class="modalWindowContainerSection">
-                            <span class="placeholderText placeholderTextPos">Вулиця</span>
-                            <select class="placeholderInput">
-                                <option value="">вул. Довженка</option>
-                                <option value="">вул. Довженка</option>
-                                <option value="">вул. Довженка</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="modalWindowContainerSectionSmoll">
-                        <div class="modalWindowContainerSection">
-                            <span class="placeholderText">Будинок</span>
-                            <input type="text" name="text" class="placeholderInput" placeholder="Будинок" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
-                        </div>
-                        <div class="modalWindowContainerSection">
-                            <span class="placeholderText">Корпус</span>
-                            <input type="text" name="text" class="placeholderInput" placeholder="Корпус" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
-                        </div>
-                        <div class="modalWindowContainerSection">
-                            <span class="placeholderText">Квартира</span>
-                            <input type="text" name="text" class="placeholderInput" placeholder="Квартира" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
-                        </div>
-                    </div>
-                    <div class="chexbox">
-                        <input type="checkbox">
-                        <p>Я живу за цією адресою.</p>
-                    </div>
-                </form>
-                <a href="#" class="submitForm" onclick="nextTab()">Зберегти зміни</a>
-            </div>  
-            <div id="tab6" class="tabcontent2">
-                <form>
-                    <div class="modalWindowContainerSection">
-                        <div class="modalWindowContainerSection">
-                            <span class="placeholderText placeholderTextPos">Область</span>
-                            <select class="placeholderInput">
-                                <option value="">Житомирська</option>
-                                <option value="">Житомирська</option>
-                                <option value="">Житомирська</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="modalWindowContainerSection">
-                        <div class="modalWindowContainerSection">
-                            <span class="placeholderText placeholderTextPos">Населений пункт</span>
-                            <select class="placeholderInput">
-                                <option value="">м. Житомир, Житомирський р-н</option>
-                                <option value="">м. Житомир, Житомирський р-н</option>
-                                <option value="">м. Житомир, Житомирський р-н</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="modalWindowContainerSection">
-                        <div class="modalWindowContainerSection">
-                            <span class="placeholderText placeholderTextPos">Вулиця</span>
-                            <select class="placeholderInput">
-                                <option value="">вул. Довженка</option>
-                                <option value="">вул. Довженка</option>
-                                <option value="">вул. Довженка</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="modalWindowContainerSectionSmoll">
-                        <div class="modalWindowContainerSection">
-                            <span class="placeholderText">Будинок</span>
-                            <input type="text" name="text" class="placeholderInput" placeholder="Будинок" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
-                        </div>
-                        <div class="modalWindowContainerSection">
-                            <span class="placeholderText">Корпус</span>
-                            <input type="text" name="text" class="placeholderInput" placeholder="Корпус" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
-                        </div>
-                        <div class="modalWindowContainerSection">
-                            <span class="placeholderText">Квартира</span>
-                            <input type="text" name="text" class="placeholderInput" placeholder="Квартира" oninput="updateLabelClass(this)" onblur="updateLabelClass(this)">
-                        </div>
-                    </div>
-                </form>
-                <a href="#" class="submitForm" onclick="nextTab()">Зберегти зміни</a>
-            </div>
-        </div>
-        <div id="tablinkWindow4" class="tablinkWindowContent">
-            <form>
-                <div class="modalWindowContainerSection">
-                    <div class="modalWindowContainerSection">
-                        <span class="placeholderText placeholderTextPos">Тип зайнятості</span>
-                        <select class="placeholderInput">
-                            <option value=""title="Військовослужбовець/СБУ/силові структури/&nbsp;ТрО/прикордонна служба">Військовослужбовець/СБУ/силові структури</option>
-                            <option value=""title="Військовослужбовець/СБУ/силові структури/&nbsp;ТрО/прикордонна служба">Військовослужбовець/СБУ/силові структури</option>
-                            <option value=""title="Військовослужбовець/СБУ/силові структури/&nbsp;ТрО/прикордонна служба">Військовослужбовець/СБУ/силові структури</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="modalWindowContainerSection">
-                    <div class="modalWindowContainerSection">
-                        <span class="placeholderText placeholderTextPos">Рівень доходів</span>
-                        <select class="placeholderInput">
-                            <option value="">Більше 10 000 грн</option>
-                            <option value="">Більше 10 000 грн</option>
-                            <option value="">Більше 10 000 грн</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="modalWindowContainerSection">
-                    <div class="modalWindowContainerSection">
-                        <span class="placeholderText placeholderTextPos">Рівень витрат</span>
-                        <select class="placeholderInput">
-                            <option value="">Від 0 до 1000 грн</option>
-                            <option value="">Від 0 до 10 грн</option>
-                            <option value="">Від 0 до 100 грн</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="chexbox">
-                    <input type="checkbox">
-                    <p>Я не є <a href="#">політичною особою</a> або пов’язаною з ним особою 
-                        (в тому числі членом його сім’ї)</p>
-                </div>
-            </form>
-            <a href="#" class="submitForm closeWindow">Зберегти зміни</a>
-        </div>
-      </div>
     </div>
-  </div>
 
 
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="script/modalRegistration.js"></script>
     <script src="script/access.js"></script>
     <script>
         function updateLabelClass(input) {
-        var span = input.previousElementSibling;
-        
-        if (input.value) {
-            span.classList.add('filled');
-            span.classList.add('active');
-        } else {
-            span.classList.remove('filled');
-            span.classList.remove('active');
-        }
+            var span = input.previousElementSibling;
+
+            if (input.value) {
+                span.classList.add('filled');
+                span.classList.add('active');
+            } else {
+                span.classList.remove('filled');
+                span.classList.remove('active');
+            }
         }
 
         var inputs = document.querySelectorAll('.placeholderInput');
-        inputs.forEach(function(input) {
-        input.addEventListener('input', function() {
-            updateLabelClass(input);
-        });
-        input.addEventListener('blur', function() {
-            updateLabelClass(input);
-        });
+        inputs.forEach(function (input) {
+            input.addEventListener('input', function () {
+                updateLabelClass(input);
+            });
+            input.addEventListener('blur', function () {
+                updateLabelClass(input);
+            });
         });
     </script>
 
     <script>
-      const customInput = document.querySelector('.customDateInput');
+        const customInput = document.querySelector('.customDateInput');
         const defaultInput = customInput.querySelector('input[type="date"]');
 
         customInput.addEventListener('click', () => {
-        defaultInput.click();
+            defaultInput.click();
         });
 
         // Listen for changes to the date input field
         defaultInput.addEventListener('input', () => {
-        // Get the selected date in the format "yyyy-MM-dd"
-        const selectedDate = defaultInput.value;
-        
-        // Convert the date to the desired format "dd.MMMM.yyyy"
-        const formattedDate = new Date(selectedDate).toLocaleDateString('en-US', {
-            day: 'numeric',
-            month: 'long',
-            year: 'numeric'
-        }).replace(/(\d+) (\w+) (\d+)/, '$1.$2.$3');
+            // Get the selected date in the format "yyyy-MM-dd"
+            const selectedDate = defaultInput.value;
 
-        // Set the formatted date as the value of the custom input field
-        customInput.value = formattedDate;
+            // Convert the date to the desired format "dd.MMMM.yyyy"
+            const formattedDate = new Date(selectedDate).toLocaleDateString('en-US', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+            }).replace(/(\d+) (\w+) (\d+)/, '$1.$2.$3');
+
+            // Set the formatted date as the value of the custom input field
+            customInput.value = formattedDate;
         });
 
     </script>
 </body>
+
 </html>
