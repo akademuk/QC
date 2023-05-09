@@ -3057,10 +3057,6 @@ input:focus {
     position: relative;
   }
 
-  .claculatorContainer .claculatorContainerSection:nth-last-of-type(1) {
-    display: none;
-  }
-
   .modalWindowContainer {
     width: 100%;
   }
@@ -3726,7 +3722,7 @@ header .logo a {
 }
 header .logo a img {
   width: 100%;
-  height: 100%;
+  height: 28px;
 }
 }
 
@@ -3739,8 +3735,11 @@ header .logo a img {
     margin-right: 0;
     margin-bottom: 30px;
 }
+.contents1 {
+  margin-top: 100px;
+}
 .cardsFlex {
-  width: 100%;
+  width: 90%;
 }
 .navigationFooter li button {
   width: auto;
